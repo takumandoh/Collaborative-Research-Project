@@ -16,6 +16,17 @@ test
 
 # Data Availability
 
+1) Measurement of Democratization
+  1-1) Polity 4
+    http://www.systemicpeace.org/inscr/p4manualv2015.pdf
+  1-2) 
+
+2) Income
+
+3) Education level
+
+4) 
+
 # Discussion
 
 # Conclusion
