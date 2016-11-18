@@ -8,7 +8,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
-why this research is important.
+why this research is important.africa
+
+Kenya
+  because they are one of the lowest ranked country in the competitive economics index
+South Africa
+  because one of the highest ranked.
+Namibia
+  because its middle
+  
 
 # Research Question
 test
@@ -18,14 +26,18 @@ test
 
 1) Measurement of Democratization
   1-1) Polity 4
-    http://www.systemicpeace.org/inscr/p4manualv2015.pdf
+ ?? ??http://www.systemicpeace.org/inscr/p4manualv2015.pdf
   1-2) 
 
-2) Income
+2) Gross National Income Level
 
-3) Education level
+3) primary enrollment
 
-4) 
+4) Income Inequality
+
+5) Gender Inequality in labor force
+
+6) mortality rate under 5
 
 # Discussion
 
