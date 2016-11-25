@@ -11,10 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 why this research is important.africa
 
 Kenya
+
   because they are one of the lowest ranked country in the competitive economics index
+
 South Africa
+
   because one of the highest ranked.
+
 Namibia
+
   because its middle
   
 
@@ -39,6 +44,20 @@ test
 
 6) mortality rate under 5
 
+#Data Cleaning
+
+#Data Analysis
+
 # Discussion
 
 # Conclusion
+```{r}
+library(ggmap)
+
+qmap(location = 'tokyo', zoom = 10)
+
+library(plotly)
+ggplotly()
+
+```
+
