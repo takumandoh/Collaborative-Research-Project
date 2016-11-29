@@ -1,6 +1,6 @@
 ---
 title: "main"
-output: pdf_document
+output: revealjs::revealjs_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -52,12 +52,7 @@ test
 
 # Conclusion
 ```{r}
-library(ggmap)
 
-qmap(location = 'tokyo', zoom = 10)
-
-library(plotly)
-ggplotly()
 
 ```
 
