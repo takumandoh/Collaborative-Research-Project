@@ -15,7 +15,11 @@ why we need to research about it
 
 ## Data gathering and cleaning
 
+data source
+
 ## Descriptive statistics
+
+
 
 ## Regression Analysis
 
