@@ -7,6 +7,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
 ```
 
 # Introduction
@@ -40,11 +41,24 @@ test
 #Data Cleaning
 
 #Data Analysis
+```{r,echo=FALSE}
+df <- read.csv("SA.csv", header = TRUE, sep = ",")
+ggplot(df, aes(year, gdppc)) + geom_line()
+ggplot(df, aes(year, mr)) + geom_line()
+ggplot(df, aes(year, demo)) + geom_line()
+
+fit <- lm(demo ~ gdppc + pe+mr+gini, data=df)
+summary(fit)
+
+fit2 <- lm(gdppc ~ demo + pe+mr+gini, data=df)
+summary(fit2)
 
 
+```
 
 # Discussion
 
+gdppc suffered from endogeneity
 # Conclusion
 ```{r}
 
