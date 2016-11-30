@@ -1,6 +1,8 @@
 ---
 title: "main"
-output: revealjs::revealjs_presentation
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -18,7 +20,7 @@ South Africa
 
   because one of the highest ranked.
 
-Namibia
+Botswana
 
   because its middle
   
