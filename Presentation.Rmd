@@ -27,9 +27,14 @@ library(bibtex)
 
 ## Democratization in South Africa
 ```{r,echo=FALSE}
+
+#we imported data from world bank and UN
 dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
 dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
 dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
+dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
+
+
 ggplot(dfsa, aes(year, demo)) + geom_line()
 
 L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
@@ -46,7 +51,7 @@ L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
 |mr|Infant Mortaliry Rate|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
-## Summary of SouthAfrica
+## Regression Analysis for SouthAfrica
 ```{r}
 summary(L1)
 ```
@@ -54,14 +59,40 @@ summary(L1)
 ## Regression Analysis for Botswana
 ```{r}
 summary(L2)
-
 ```
 
 ## Regression Analysis for Kenya
 ```{r}
 summary(L3)
+```
+
+## Pooled OLS
+```{r}
+#Then, we conducted pooled OLS. In this model, we included all three countries and run the regression.
+
+L4 <- lm(demo ~ gdppc + pe + mr + gi, data=dfpanel)
+summary(L4)
+```
+
+## Country specific effects
+
+```{r}
+plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
+abline(h=0, lty=2)
+lines(smooth.spline(fitted(L4), residuals(L4)))
+
 
 ```
+
+## Fixed-Effect model
+
+```{r, echo = FALSE}
+#the previous regression suffered from panel specific effects, which cause to biased and inefficient estimator. Thus, we use Fixed-effect model to eliminate panel specific effects.
+
+
+#plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
+```
+
 ## Conclusion
 
 
