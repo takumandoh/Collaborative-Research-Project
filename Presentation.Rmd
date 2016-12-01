@@ -9,11 +9,19 @@ library(ggplot2)
 library(stargazer)
 ```
 
-## Introduction
+## Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared> 
 
-why we need to research about it
+Takuma Ahndo & Bomi Kim
+        Fall 2016 
 
-## Research question and Hypothesis
+## Democracy? Democratization?  
+
+## Background Research 1 - Factors for Democratization 
+
+## Background Research 2 - Democratization in Africa
+
+## Research Question and Hypotheses
+
 
 ## Data gathering and cleaning
 
