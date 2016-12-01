@@ -81,7 +81,7 @@ plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
 abline(h=0, lty=2)
 lines(smooth.spline(fitted(L4), residuals(L4)))
 
-
+#apparently, this regression suffered from panel specific effects.
 ```
 
 ## Fixed-Effect model
