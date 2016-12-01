@@ -1,5 +1,5 @@
 ---
-title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>                                   Takuma Ahndo & Bomi Kim"
+title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>                                                                                                                                                                                                               Takuma Ahndo & Bomi Kim"
 output: revealjs::revealjs_presentation
 ---
 
