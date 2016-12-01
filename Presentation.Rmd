@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(stargazer)
 library(bibtex)
+library(plm)
 
 ```
 
@@ -76,21 +77,38 @@ summary(L4)
 
 ## Country specific effects
 
-```{r}
+```{r, echo=FALSE}
 plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
 abline(h=0, lty=2)
 lines(smooth.spline(fitted(L4), residuals(L4)))
 
-#apparently, this regression suffered from panel specific effects.
+#apparently, this regression suffered from panel specific effects. Because, the 
+
 ```
+
+## Violation of Gauss-Markov Assumption
+
+
 
 ## Fixed-Effect model
 
 ```{r, echo = FALSE}
 #the previous regression suffered from panel specific effects, which cause to biased and inefficient estimator. Thus, we use Fixed-effect model to eliminate panel specific effects.
 
-
+fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year"), model="within")
+summary(fixed)
 #plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
+```
+
+
+## residuals
+```{r, echo=FALSE}
+plot(fitted(fixed), residuals(fixed), xlab = "Fitted Values", ylab = "Residuals")
+abline(h=0, lty=2)
+lines(smooth.spline(fitted(fixed), residuals(fixed)))
+
+#apparently, this regression suffered from panel specific effects. Because, the 
+
 ```
 
 ## Conclusion
