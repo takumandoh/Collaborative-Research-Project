@@ -1,5 +1,6 @@
 ---
-title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>                                                                                                                                                                                                               Takuma Ahndo & Bomi Kim"
+title: "Socio-economic factors for Democracy < South Africa, Botwana, and Kenya compared >  "                           
+author: Takuma Andoh & Bomi Kim
 output: revealjs::revealjs_presentation
 ---
 
@@ -18,9 +19,10 @@ library(stargazer)
 ## Research Question and Hypotheses
 
 
-## Data gathering and cleaning
+## Analysis Methodology 1 - Collecting and Gathering Data
 
-## Descriptive statistics
+
+## Analysis Methodology 2 - Descriptive statistics
 
 ## Democratization in South Africa
 ```{r,echo=FALSE}
@@ -36,12 +38,13 @@ ggplot(df, aes(year, demo)) + geom_line()
 |mr|Infant Mortaliry Rate|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
-## Regression Analysis
+## Analysis Methodology 3 - Regression Analysis
 ```{r}
 fit3 <- lm(demo ~ gdppc + pe+mr+gi, data=df)
 stargazer(fit3,type="text")
 ```
 
-## 
 
 ## Conclusion
+
+## Reference
