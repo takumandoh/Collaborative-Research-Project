@@ -51,12 +51,13 @@ ggplot(df, aes(year, gdppc)) + geom_line()
 ggplot(df, aes(year, mr)) + geom_line()
 ggplot(df, aes(year, demo)) + geom_line()
 
-fit <- lm(demo ~ gdppc + pe+mr+gini, data=df)
+fit <- lm(demo ~ gdppc +gini+ pe+mr+gi, data=df)
 summary(fit)
 
 fit2 <- lm(gdppc ~ demo + pe+mr+gini, data=df)
 summary(fit2)
-
+fit3 <- lm(demo ~ gdppc + pe+mr+gi, data=df)
+summary(fit3)
 
 ```
 
