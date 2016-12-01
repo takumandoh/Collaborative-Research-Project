@@ -172,46 +172,88 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 </section>
-<section id="regression-analysis" class="slide level2">
-<h1>Regression Analysis</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit3 &lt;-<span class="st"> </span><span class="kw">lm</span>(demo ~<span class="st"> </span>gdppc +<span class="st"> </span>pe+mr+gi, <span class="dt">data=</span>df)
-<span class="kw">stargazer</span>(fit3,<span class="dt">type=</span><span class="st">&quot;text&quot;</span>)</code></pre></div>
+<section id="summary-of-southafrica" class="slide level2">
+<h1>Summary of SouthAfrica</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(L1)</code></pre></div>
 <pre><code>## 
-## ===============================================
-##                         Dependent variable:    
-##                     ---------------------------
-##                                demo            
-## -----------------------------------------------
-## gdppc                         -0.001*          
-##                              (0.0004)          
-##                                                
-## pe                            0.00000          
-##                              (0.00000)         
-##                                                
-## mr                            -0.154           
-##                               (0.104)          
-##                                                
-## gi                           -68.027**         
-##                              (22.421)          
-##                                                
-## Constant                     63.307**          
-##                              (25.627)          
-##                                                
-## -----------------------------------------------
-## Observations                    17             
-## R2                             0.937           
-## Adjusted R2                    0.916           
-## Residual Std. Error       0.671 (df = 12)      
-## F Statistic           44.745*** (df = 4; 12)   
-## ===============================================
-## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfsa)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.53909 -0.16387  0.03986  0.18542  0.82555 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  6.331e+01  2.563e+01   2.470   0.0295 *
+## gdppc       -7.301e-04  3.935e-04  -1.855   0.0883 .
+## pe           5.341e-08  4.925e-07   0.108   0.9154  
+## mr          -1.540e-01  1.040e-01  -1.480   0.1646  
+## gi          -6.803e+01  2.242e+01  -3.034   0.0104 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6706 on 12 degrees of freedom
+##   (38 observations deleted due to missingness)
+## Multiple R-squared:  0.9372, Adjusted R-squared:  0.9162 
+## F-statistic: 44.74 on 4 and 12 DF,  p-value: 4.076e-07</code></pre>
 </section>
-<section id="section" class="slide level2">
-<h1></h1>
+<section id="regression-analysis-for-botswana" class="slide level2">
+<h1>Regression Analysis for Botswana</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(L2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfbo)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.42502 -0.20434 -0.05208  0.16324  0.54724 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept) -3.765e+00  3.985e+00  -0.945  0.35871   
+## gdppc        4.283e-04  1.427e-04   3.001  0.00847 **
+## pe           3.789e-06  5.207e-06   0.728  0.47742   
+## mr           3.059e-02  1.102e-02   2.776  0.01350 * 
+## gi           9.267e+00  4.715e+00   1.965  0.06698 . 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2878 on 16 degrees of freedom
+##   (34 observations deleted due to missingness)
+## Multiple R-squared:  0.8471, Adjusted R-squared:  0.8089 
+## F-statistic: 22.16 on 4 and 16 DF,  p-value: 2.325e-06</code></pre>
+</section>
+<section id="regression-analysis-for-kenya" class="slide level2">
+<h1>Regression Analysis for Kenya</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(L3)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfkn)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.3910 -0.5731  0.1546  0.6748  3.9389 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  1.696e+02  5.029e+01   3.372  0.00456 **
+## gdppc       -1.657e-02  9.355e-03  -1.771  0.09836 . 
+## pe           2.402e-06  1.732e-06   1.387  0.18707   
+## mr          -3.389e-01  9.479e-02  -3.575  0.00304 **
+## gi          -1.768e+02  4.471e+01  -3.955  0.00144 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.905 on 14 degrees of freedom
+##   (40 observations deleted due to missingness)
+## Multiple R-squared:  0.9267, Adjusted R-squared:  0.9058 
+## F-statistic: 44.27 on 4 and 14 DF,  p-value: 8.49e-08</code></pre>
 </section>
 <section id="conclusion" class="slide level2">
 <h1>Conclusion</h1>
 </section>
+<section><section id="references" class="titleslide slide level1"><h1>References</h1></section></section>
     </div>
   </div>
 

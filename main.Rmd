@@ -8,6 +8,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
+library(stargazer)
+
 ```
 
 # Introduction
@@ -58,7 +60,7 @@ fit2 <- lm(gdppc ~ demo + pe+mr+gini, data=df)
 summary(fit2)
 fit3 <- lm(demo ~ gdppc + pe+mr+gi, data=df)
 summary(fit3)
-
+stargazer(fit3,type="latex")
 ```
 
 # Discussion

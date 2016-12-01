@@ -1,12 +1,15 @@
 ---
 title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>                                                                                                                                                                                                               Takuma Ahndo & Bomi Kim"
 output: revealjs::revealjs_presentation
+bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(stargazer)
+library(bibtex)
+
 ```
 
 ## Democracy? Democratization?  
@@ -24,8 +27,15 @@ library(stargazer)
 
 ## Democratization in South Africa
 ```{r,echo=FALSE}
-df <- read.csv("SA.csv", header = TRUE, sep = ",")
-ggplot(df, aes(year, demo)) + geom_line()
+dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
+dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
+dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
+ggplot(dfsa, aes(year, demo)) + geom_line()
+
+L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
+L2 <- lm(demo ~ gdppc + pe + mr + gi, data=dfbo)
+L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
+
 ```
 
 ## Explanetory variables
@@ -36,12 +46,25 @@ ggplot(df, aes(year, demo)) + geom_line()
 |mr|Infant Mortaliry Rate|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
-## Regression Analysis
+## Summary of SouthAfrica
 ```{r}
-fit3 <- lm(demo ~ gdppc + pe+mr+gi, data=df)
-stargazer(fit3,type="text")
+summary(L1)
 ```
 
-## 
+## Regression Analysis for Botswana
+```{r}
+summary(L2)
 
+```
+
+## Regression Analysis for Kenya
+```{r}
+summary(L3)
+
+```
 ## Conclusion
+
+
+
+#References
+
