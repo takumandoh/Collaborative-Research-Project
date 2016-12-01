@@ -1,5 +1,5 @@
 ---
-title: "Presentation"
+title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>                                   Takuma Ahndo & Bomi Kim"
 output: revealjs::revealjs_presentation
 ---
 
@@ -8,11 +8,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(stargazer)
 ```
-
-## Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared> 
-
-Takuma Ahndo & Bomi Kim
-        Fall 2016 
 
 ## Democracy? Democratization?  
 
