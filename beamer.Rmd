@@ -1,5 +1,5 @@
 ---
-title: "What brings Democracy?  \n < South Africa, Botswana, and Kenya compared >"
+title: "Socioeconomic status and Democracy  \n < South Africa, Botswana, and Kenya compared >"
 author: Takuma Andoh & Bomi Kim
 output:
   beamer_presentation:
@@ -42,7 +42,9 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 ## Democracy? Democratization?  
 
 - Democracy: "Ruled by People". A system of government where the citizens exercise power directly or through electing representatives in order to form a parliament.
+
   *Main Charateristics: Political freedom, Rule of law, Equality before the law, Majority rule, Free and Fair elections. 
+  
 - Democratization: A process which leads to a more open, more participatory, less authoritarian soceity within a sovereign state. 
 
 
@@ -118,7 +120,7 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
   - GDP is not statistically significant
   
  2. Among four socioeconomic components, the educational effect on democracy is the most significant than others.
-  - TRUE
+  - TRUE, but also Child Mortality is significant.
  
  3. The degree of impact of variables on democracy is consistent across selected African countries. 
   - Inconsistent! 
