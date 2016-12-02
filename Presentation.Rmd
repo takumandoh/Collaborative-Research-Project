@@ -2,12 +2,15 @@
 title: "Socio-economic factors for Democracy < South Africa, Botwana, and Kenya compared >  "                           
 author: Takuma Andoh & Bomi Kim
 output: revealjs::revealjs_presentation
+bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(stargazer)
+library(bibtex)
+
 ```
 
 ## Democracy? Democratization?  
@@ -26,8 +29,26 @@ library(stargazer)
 
 ## Democratization in South Africa
 ```{r,echo=FALSE}
-df <- read.csv("SA.csv", header = TRUE, sep = ",")
-ggplot(df, aes(year, demo)) + geom_line()
+
+#we imported data from world bank and UN
+dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
+dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
+dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
+dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
+
+
+ggplot(dfsa, aes(year, demo)) + geom_line()
+
+L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
+L2 <- lm(demo ~ gdppc + pe + mr + gi, data=dfbo)
+L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
+
+ggplot(dfsa, aes(year, demo)) + geom_line()
+
+L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
+L2 <- lm(demo ~ gdppc + pe + mr + gi, data=dfbo)
+L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
+
 ```
 
 ## Explanetory variables
@@ -38,13 +59,238 @@ ggplot(df, aes(year, demo)) + geom_line()
 |mr|Infant Mortaliry Rate|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
+<<<<<<< HEAD
 ## Analysis Methodology 3 - Regression Analysis
+=======
+## Regression Analysis for SouthAfrica
+>>>>>>> origin/master
 ```{r}
-fit3 <- lm(demo ~ gdppc + pe+mr+gi, data=df)
-stargazer(fit3,type="text")
+summary(L1)
 ```
 
+<<<<<<< HEAD
 
 ## Conclusion
 
 ## Reference
+=======
+## Regression Analysis for Botswana
+```{r}
+summary(L2)
+```
+
+## Regression Analysis for Kenya
+```{r}
+summary(L3)
+```
+
+## Pooled OLS
+```{r}
+#Then, we conducted pooled OLS. In this model, we included all three countries and run the regression.
+
+L4 <- lm(demo ~ gdppc + pe + mr + gi, data=dfpanel)
+summary(L4)
+```
+
+## Country specific effects
+
+```{r}
+plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
+abline(h=0, lty=2)
+lines(smooth.spline(fitted(L4), residuals(L4)))
+
+#apparently, this regression suffered from panel specific effects.
+```
+
+## Fixed-Effect model
+
+```{r, echo = FALSE}
+#the previous regression suffered from panel specific effects, which cause to biased and inefficient estimator. Thus, we use Fixed-effect model to eliminate panel specific effects.
+
+
+#plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
+```
+
+## Conclusion
+
+
+
+#References
+
+>>>>>>> origin/master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABgAAAASACAMAAAAOH3aoAAAAllBMVEUAAAAAADoAAGYAOpAAZrYzMzM6AAA6ZmY6kNtNTU1NTW5NTY5NbqtNjshmAABmZmZmtrZmtv9uTU1uq+SOTU2Oq6uOyMiOyP+QOgCQkLaQ2/+rbk2rjk2r5P+2ZgC2kDq2///Ijk3I///bkDrb///kq27k5Kvk///r6+v/tmb/yI7/25D/5Kv//7b//8j//9v//+T///9dzdohAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO2d63pbx4FlmY7tCWzLM6bVLU/U1jStZtumGVl8/5cb4kIKIG5V5xS4a9de60ck0omD9W2qFi4H0NUDAABEcqW+AQAAoIEAAACEQgAAAEIhAAAAoRAAAIBQCAAAQCgEAAAgFAIAABAKAQAACIUAAACEQgAAAEIhAAAAoRAAAIBQmgfg9...(line truncated)...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ## Analysis Methodology 3 - Regression Analysis ======= ## Regression Analysis for SouthAfrica &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(L1)</code></pre></div>
+
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfsa)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.53909 -0.16387  0.03986  0.18542  0.82555 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  6.331e+01  2.563e+01   2.470   0.0295 *
+## gdppc       -7.301e-04  3.935e-04  -1.855   0.0883 .
+## pe           5.341e-08  4.925e-07   0.108   0.9154  
+## mr          -1.540e-01  1.040e-01  -1.480   0.1646  
+## gi          -6.803e+01  2.242e+01  -3.034   0.0104 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6706 on 12 degrees of freedom
+##   (38 observations deleted due to missingness)
+## Multiple R-squared:  0.9372, Adjusted R-squared:  0.9162 
+## F-statistic: 44.74 on 4 and 12 DF,  p-value: 4.076e-07</code></pre>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+
+
+
+
+<section><section id="reference" class="titleslide slide level1"><h1>## Reference</h1></section><section id="regression-analysis-for-botswana" class="slide level2">
+<h1>Regression Analysis for Botswana</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(L2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfbo)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.42502 -0.20434 -0.05208  0.16324  0.54724 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept) -3.765e+00  3.985e+00  -0.945  0.35871   
+## gdppc        4.283e-04  1.427e-04   3.001  0.00847 **
+## pe           3.789e-06  5.207e-06   0.728  0.47742   
+## mr           3.059e-02  1.102e-02   2.776  0.01350 * 
+## gi           9.267e+00  4.715e+00   1.965  0.06698 . 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2878 on 16 degrees of freedom
+##   (34 observations deleted due to missingness)
+## Multiple R-squared:  0.8471, Adjusted R-squared:  0.8089 
+## F-statistic: 22.16 on 4 and 16 DF,  p-value: 2.325e-06</code></pre>
+</section><section id="regression-analysis-for-kenya" class="slide level2">
+<h1>Regression Analysis for Kenya</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(L3)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfkn)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.3910 -0.5731  0.1546  0.6748  3.9389 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  1.696e+02  5.029e+01   3.372  0.00456 **
+## gdppc       -1.657e-02  9.355e-03  -1.771  0.09836 . 
+## pe           2.402e-06  1.732e-06   1.387  0.18707   
+## mr          -3.389e-01  9.479e-02  -3.575  0.00304 **
+## gi          -1.768e+02  4.471e+01  -3.955  0.00144 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.905 on 14 degrees of freedom
+##   (40 observations deleted due to missingness)
+## Multiple R-squared:  0.9267, Adjusted R-squared:  0.9058 
+## F-statistic: 44.27 on 4 and 14 DF,  p-value: 8.49e-08</code></pre>
+</section><section id="pooled-ols" class="slide level2">
+<h1>Pooled OLS</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Then, we conducted pooled OLS. In this model, we
+included all three countries and run the regression.</span>
+
+L4 &lt;-<span class="st"> </span><span class="kw">lm</span>(demo ~<span class="st"> </span>gdppc +<span class="st"> </span>pe +<span class="st"> </span>mr +<span class="st"> </span>gi, <span class="dt">data=</span>dfpanel)
+<span class="kw">summary</span>(L4)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = demo ~ gdppc + pe + mr + gi, data = dfpanel)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.9141 -1.6893 -0.6646  0.6433  8.1385 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  6.918e+01  1.130e+01   6.124 1.23e-07 ***
+## gdppc       -1.246e-03  6.213e-04  -2.006  0.05010 .  
+## pe          -5.569e-07  1.948e-07  -2.859  0.00610 ** 
+## mr          -1.036e-01  3.078e-02  -3.366  0.00144 ** 
+## gi          -7.181e+01  1.363e+01  -5.270 2.66e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3.007 on 52 degrees of freedom
+##   (108 observations deleted due to missingness)
+## Multiple R-squared:  0.7434, Adjusted R-squared:  0.7237 
+## F-statistic: 37.66 on 4 and 52 DF,  p-value: 8.882e-15</code></pre>
+</section><section id="country-specific-effects" class="slide level2">
+<h1>Country specific effects</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">fitted</span>(L4), <span class="kw">residuals</span>(L4), <span class="dt">xlab =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Residuals&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">lty=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(<span class="kw">smooth.spline</span>(<span class="kw">fitted</span>(L4), <span class="kw">residuals</span>(L4)))</code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABgAAAASACAMAAAAOH3aoAAAAaVBMVEUAAAAAADoAAGYAOpAAZmYAZpAAZrY6AAA6OgA6Ojo6kJA6kLY6kNtmAABmAGZmtrZmtv+QOgCQkGaQkNuQ29uQ2/+2ZgC2Zma2/7a2///bkDrbtmbb/7bb////tmb/25D//7b//9v////PVlcUAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO3dC3fbxhaYUSZp7T7s1mkbtVEb2dH//5EV3+BTeAyAOXP2XuuuSL4SRA7A+UgABDfvAKS0WfsGALAOAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEACApAQBISgAAkhIAgKQEA...(line truncated)...
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#apparently, this regression suffered from panel specific effects.</span></code></pre></div>
+</section><section id="fixed-effect-model" class="slide level2">
+<h1>Fixed-Effect model</h1>
+</section><section id="conclusion-1" class="slide level2">
+<h1>Conclusion</h1>
+</section></section>
+<section><section id="references" class="titleslide slide level1"><h1>References</h1></section></section>

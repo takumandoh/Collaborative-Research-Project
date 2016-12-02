@@ -8,6 +8,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
+library(stargazer)
+
 ```
 
 # Introduction
@@ -46,19 +48,16 @@ test
 
 #Data Analysis
 ```{r,echo=FALSE}
-df <- read.csv("SA.csv", header = TRUE, sep = ",")
-ggplot(df, aes(year, gdppc)) + geom_line()
-ggplot(df, aes(year, mr)) + geom_line()
-ggplot(df, aes(year, demo)) + geom_line()
+dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
+dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
+dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
+ggplot(dfsa, aes(year, demo)) + geom_line()
 
-fit <- lm(demo ~ gdppc +gini+ pe+mr+gi, data=df)
-summary(fit)
+L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
+L2 <- lm(demo ~ gdppc + pe + mr + gi, data=dfbo)
+L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
 
-fit2 <- lm(gdppc ~ demo + pe+mr+gini, data=df)
-summary(fit2)
-fit3 <- lm(demo ~ gdppc + pe+mr+gi, data=df)
-summary(fit3)
-
+stargazer::stargazer(L1,type="latex")
 ```
 
 # Discussion
