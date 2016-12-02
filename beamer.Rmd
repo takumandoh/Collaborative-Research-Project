@@ -42,7 +42,9 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 ## Democracy? Democratization?  
 
 - Democracy: "Ruled by People". A system of government where the citizens exercise power directly or through electing representatives in order to form a parliament.
+
   *Main Charateristics: Political freedom, Rule of law, Equality before the law, Majority rule, Free and Fair elections. 
+  
 - Democratization: A process which leads to a more open, more participatory, less authoritarian soceity within a sovereign state. 
 
 
