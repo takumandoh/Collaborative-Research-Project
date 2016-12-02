@@ -1,5 +1,5 @@
 ---
-title: "What brings Democracy?  \n < South Africa, Botswana, and Kenya compared >"
+title: "Socioeconomic status and Democracy  \n < South Africa, Botswana, and Kenya compared >"
 author: Takuma Andoh & Bomi Kim
 output:
   beamer_presentation:
