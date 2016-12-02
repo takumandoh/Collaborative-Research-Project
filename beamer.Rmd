@@ -1,6 +1,6 @@
 ---
-title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>"
-author: Takuma Ahndo & Bomi Kim
+title: "What brings Democracy?  \n < South Africa, Botswana, and Kenya compared >"
+author: Takuma Andoh & Bomi Kim
 output:
   beamer_presentation:
     colortheme: beaver
@@ -41,12 +41,38 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 ```
 ## Democracy? Democratization?  
 
-## Background Research 1 - Factors for Democratization 
+- Democracy: "Ruled by People". A system of government where the citizens exercise power directly or through electing representatives in order to form a parliament.
+  *Main Charateristics: Political freedom, Rule of law, Equality before the law, Majority rule, Free and Fair elections. 
+- Democratization: A process which leads to a more open, more participatory, less authoritarian soceity within a sovereign state. 
+
+
+## Background Research 1 - Measuring Democracy
+
+- US-based Freedom House Organization: aggregates scores of 25 indicators from politial rights and civil liberties in order to evaluate the state of freedom
+  *2016 Report: Out of 195 states, 125 countries are classified as electoral democracies. 
+- The Polity Project: examines qualities of democratic and autocratic authority in governing insitutions to observe a spectrum of governing authority. 
+
+--> We used "Polity Score" data from the Polity Project for our dependent variable  
 
 ## Background Research 2 - Democratization in Africa
 
+- Third Wave (1974-1990): Durig the Third Wave of democratization, over 60 countries throughout the world changed their authoritarian regimes to democracies. 
+- Repetition of the onset of democratization and frequent slips back to authoritarianism in Africa.
+- Making progress towards democracy by improving socioeconomic features and revolting against authoritarian leaders
+
 ## Research Question and Hypotheses
 
+< What brings democracy? >
+
+- Investigating the effects of various socioeconomic variables on democratization in African countries. 
+
+- Analyzing the correlation between socioeconomic components and democracy. 
+
+ *Three Hypotheses 
+ 
+ 1. There is a significant and positive correlation between socioeconomic variables and democracy
+ 2. Among four socioeconomic components, the educational effect on democracy is the most significant than others.
+ 3. The degree of impact of variables on democracy is consistent across selected African countries. 
 
 
 ## Democratization level has been changeing over time
