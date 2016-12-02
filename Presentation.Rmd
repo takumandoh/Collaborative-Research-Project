@@ -1,5 +1,6 @@
 ---
-title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>                                                                                                                                                                                                               Takuma Ahndo & Bomi Kim"
+title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>"
+author: Takuma Ahndo & Bomi Kim
 output: revealjs::revealjs_presentation
 bibliography: bibliography.bib
 ---
@@ -10,9 +11,29 @@ library(ggplot2)
 library(stargazer)
 library(bibtex)
 library(plm)
-
+library(knitr)
 ```
 
+
+```{r, include=FALSE}
+#importing data
+dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
+dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
+dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
+dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
+
+#runnning regression for each country
+L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
+L2 <- lm(demo ~ gdppc + pe + mr + gi, data=dfbo)
+L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
+
+#runnning panel regression
+L4 <- lm(demo ~ gdppc + pe + mr + gi, data=dfpanel)
+
+#runnning fixed effects panel regression
+fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year"), model="within")
+
+```
 ## Democracy? Democratization?  
 
 ## Background Research 1 - Factors for Democratization 
@@ -22,26 +43,10 @@ library(plm)
 ## Research Question and Hypotheses
 
 
-## Data gathering and cleaning
-
-## Descriptive statistics
 
 ## Democratization in South Africa
 ```{r,echo=FALSE}
-
-#we imported data from world bank and UN
-dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
-dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
-dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
-dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
-
-
 ggplot(dfsa, aes(year, demo)) + geom_line()
-
-L1 <- lm(demo ~ gdppc + pe + mr + gi, data=dfsa)
-L2 <- lm(demo ~ gdppc + pe + mr + gi, data=dfbo)
-L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
-
 ```
 
 ## Explanetory variables
@@ -52,68 +57,44 @@ L3 <- lm(demo ~ gdppc + pe + mr + gi, data=dfkn)
 |mr|Infant Mortaliry Rate|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
-## Regression Analysis for SouthAfrica
-```{r}
-summary(L1)
-```
+## Regression results 
 
-## Regression Analysis for Botswana
-```{r}
-summary(L2)
-```
-
-## Regression Analysis for Kenya
-```{r}
-summary(L3)
-```
+![drawing](figures/regressionresults.png)
 
 ## Pooled OLS
-```{r}
-#Then, we conducted pooled OLS. In this model, we included all three countries and run the regression.
+![drawing](figures/panelresults.png)
 
-L4 <- lm(demo ~ gdppc + pe + mr + gi, data=dfpanel)
-summary(L4)
-```
+## Heteroscedasticity in residuals
 
-## Country specific effects
-
-```{r, echo=FALSE}
-plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
-abline(h=0, lty=2)
-lines(smooth.spline(fitted(L4), residuals(L4)))
-
-#apparently, this regression suffered from panel specific effects. Because, the 
-
-```
-
-## Violation of Gauss-Markov Assumption
-
-
+![drawing](figures/residvsfitted.png)
 
 ## Fixed-Effect model
+(1) and (2) are the results of pooled OLS and fixed OLS. 
 
-```{r, echo = FALSE}
-#the previous regression suffered from panel specific effects, which cause to biased and inefficient estimator. Thus, we use Fixed-effect model to eliminate panel specific effects.
-
-fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year"), model="within")
-summary(fixed)
-#plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
-```
+![drawing](figures/pooledandfixed.png)
 
 
-## residuals
-```{r, echo=FALSE}
-plot(fitted(fixed), residuals(fixed), xlab = "Fitted Values", ylab = "Residuals")
-abline(h=0, lty=2)
-lines(smooth.spline(fitted(fixed), residuals(fixed)))
+## Do panel specific effect exist?
+![drawing](figures/panelspecificexist.png)
 
-#apparently, this regression suffered from panel specific effects. Because, the 
+We have to reject the null-hypothesis.(there is no panel specific effects)
 
-```
+## Now, no more heteroscedasticity
+![drawing](figures/bptest.png)
+
+we cannot reject the null hypothesis. (residuals doesn't correlated with independent variables)
+
+## results
+
+![drawing](figures/results.png)
 
 ## Conclusion
 
 
+
+
+```{r}
+```
 
 #References
 
