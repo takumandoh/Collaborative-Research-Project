@@ -48,7 +48,7 @@ test
 
 6) mortality rate under 5
 
-# Democratization in South Africa
+# Democratization
 
 ```{r,echo=FALSE}
 
@@ -58,6 +58,10 @@ dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
 dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
 dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
 ggplot(dfsa, aes(year, demo)) + geom_line()
+ggplot(dfbo, aes(year, demo)) + geom_line()
+ggplot(dfkn, aes(year, demo)) + geom_line()
+
+
 ```
 
 # Explanetory variables
