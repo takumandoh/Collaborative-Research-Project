@@ -49,7 +49,7 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 
 
 
-## Democratization level has been changes over time
+## Democratization level has been changeing over time
 
 ![DL in Kenya](figures/democratization.png)
 
@@ -66,16 +66,15 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 ![regression results for each country](figures/regressionresults.png)
 
 ## All variables except gdppc looks significant
-![drawing](figures/panelresults.png)
+![PooledOLS](figures/panelresults.png)
 
 ## The coefficients are biased and inefficient.
 
-![drawing](figures/residvsfitted.png)
+![residual vs fitted value](figures/residvsfitted.png)
 
 ## Gender equality has negative effects on democracy
-(1) and (2) are the results of pooled OLS and fixed OLS. 
 
-![drawing](figures/pooledandfixed.png)
+![fixed effect](figures/pooledandfixed.png)
 
 ## Conclusion
 
