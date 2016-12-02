@@ -48,7 +48,7 @@ test
 
 6) mortality rate under 5
 
-# Democratization in South Africa
+# Democratization
 
 ```{r,echo=FALSE}
 
@@ -58,6 +58,10 @@ dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
 dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
 dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
 ggplot(dfsa, aes(year, demo)) + geom_line()
+ggplot(dfbo, aes(year, demo)) + geom_line()
+ggplot(dfkn, aes(year, demo)) + geom_line()
+
+
 ```
 
 # Explanetory variables
@@ -76,7 +80,7 @@ L1 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfsa)
 L2 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfbo)
 L3 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfkn)
 
-stargazer(L1, L2, L3,digits = 2,title = "Regression results for each country", type = 'latex')
+stargazer(L1, L2, L3,digits = 2,column.labels=c("SouthAfrica","Botswana","Kenya"),title = "Regression results for each country", type = 'latex')
 ```
 
 # Pooled OLS
@@ -112,7 +116,7 @@ bptest(L4)
 pooled <- plm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel, model="pooling")
 fixed <- plm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel, index=c("country", "year"), model="within")
 
-stargazer(pooled, fixed,digits = 3,title = "pooled OLS and fixed effects OLS", type = 'latex')
+stargazer(pooled, fixed,digits = 3,column.labels=c("PooledOLS","FixedOLS"),title = "pooled OLS and fixed effects OLS", type = 'latex')
 
 #plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
 ```

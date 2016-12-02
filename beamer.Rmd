@@ -75,56 +75,36 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
  3. The degree of impact of variables on democracy is consistent across selected African countries. 
 
 
-## Democratization in South Africa
-```{r,echo=FALSE}
-ggplot(dfsa, aes(year, demo)) + geom_line()
-```
+## Democratization level has been changes over time
+
+![DL in Kenya](figures/democratization.png)
 
 ## Explanetory variables
 |variable name|detail|source|
 |:-----|:-----|:------|
-|gdppc|Gross National Production Per Capita|World Bank|
-|pe|Primary enrollment in education|United Nations|
-|mr|Infant Mortaliry Rate|United Nations|
+|gdppc|Gross Domestic Production Per Capita|World Bank|
+|pe|Primary ed enrollment|United Nations|
+|mr|Child Mortality under 5|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
-## Regression results 
+## Each country has different significant variables
 
-![drawing](figures/regressionresults.png)
+![regression results for each country](figures/regressionresults.png)
 
-## Pooled OLS
+## All variables except gdppc looks significant
 ![drawing](figures/panelresults.png)
 
-## Heteroscedasticity in residuals
+## The coefficients are biased and inefficient.
 
 ![drawing](figures/residvsfitted.png)
 
-## Fixed-Effect model
+## Gender equality has negative effects on democracy
 (1) and (2) are the results of pooled OLS and fixed OLS. 
 
 ![drawing](figures/pooledandfixed.png)
 
-
-## Do panel specific effect exist?
-![drawing](figures/panelspecificexist.png)
-
-We have to reject the null-hypothesis.(there is no panel specific effects)
-
-## Now, no more heteroscedasticity
-![drawing](figures/bptest.png)
-
-we cannot reject the null hypothesis. (residuals doesn't correlated with independent variables)
-
-## results
-
-![drawing](figures/results.png)
-
 ## Conclusion
 
 
-
-
-```{r}
-```
 
 #References
