@@ -102,8 +102,15 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 
 ![fixed effect](figures/pooledandfixed.png)
 
-## Conclusion
+## Findings
 
-
-
-#References
+ 1. There is a significant and positive correlation between socioeconomic variables and democracy
+  - Child Mortality and Primary Education have statistically significant and positive effect on democracy
+  - Gender equality has negative effect on democracy
+  - GDP is not statistically significant
+  
+ 2. Among four socioeconomic components, the educational effect on democracy is the most significant than others.
+  - TRUE
+ 
+ 3. The degree of impact of variables on democracy is consistent across selected African countries. 
+  - Inconsistent! 
