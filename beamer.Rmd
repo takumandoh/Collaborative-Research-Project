@@ -57,9 +57,9 @@ ggplot(dfsa, aes(year, demo)) + geom_line()
 ## Explanetory variables
 |variable name|detail|source|
 |:-----|:-----|:------|
-|gdppc|Gross National Production Per Capita|World Bank|
-|pe|Primary enrollment in education|United Nations|
-|mr|Infant Mortaliry Rate|United Nations|
+|gdppc|Gross Domestic Production Per Capita|World Bank|
+|pe|Primary ed enrollment|United Nations|
+|mr|Child Mortality under 5|United Nations|
 |gi|gender inequality in labor market|United Nations|
 
 ## Regression results 
@@ -78,17 +78,6 @@ ggplot(dfsa, aes(year, demo)) + geom_line()
 
 ![drawing](figures/pooledandfixed.png)
 
-
-## Do panel specific effect exist?
-![drawing](figures/panelspecificexist.png)
-
-We have to reject the null-hypothesis.(there is no panel specific effects)
-
-## Now, no more heteroscedasticity
-![drawing](figures/bptest.png)
-
-we cannot reject the null hypothesis. (residuals doesn't correlated with independent variables)
-
 ## results
 
 ![drawing](figures/results.png)
@@ -97,8 +86,5 @@ we cannot reject the null hypothesis. (residuals doesn't correlated with indepen
 
 
 
-
-```{r}
-```
 
 #References
