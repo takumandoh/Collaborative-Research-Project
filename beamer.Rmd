@@ -120,7 +120,7 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
   - GDP is not statistically significant
   
  2. Among four socioeconomic components, the educational effect on democracy is the most significant than others.
-  - TRUE
+  - TRUE, but also Child Mortality is significant.
  
  3. The degree of impact of variables on democracy is consistent across selected African countries. 
   - Inconsistent! 
