@@ -60,6 +60,14 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 - Repetition of the onset of democratization and frequent slips back to authoritarianism in Africa.
 - Making progress towards democracy by improving socioeconomic features and revolting against authoritarian leaders
 
+## Selection of Case countries
+
+- World Economic Forum's Global Competitiveness Report 2015-2016: assess the competitiveness of 140 wolrd economies based on 113 indicators such as macroeconomic environment, health and primary education, goods market and labor market.
+- Africa's top performers include Mauritius, South Afirca, Rwanda and Botswana
+- Africa's low performers include Liberia, Sierra Leone, Ivory Coast and Ethiopia 
+
+-South Africa (49th), Botswana (71th), Kenay (99th) 
+
 ## Research Question and Hypotheses
 
 < What brings democracy? >
