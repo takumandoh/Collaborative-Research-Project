@@ -66,7 +66,7 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 - Africa's top performers include Mauritius, South Afirca, Rwanda and Botswana
 - Africa's low performers include Liberia, Sierra Leone, Ivory Coast and Ethiopia 
 
--South Africa (49th), Botswana (71th), Kenay (99th) 
+-South Africa (49th), Botswana (71th), Kenya (99th) 
 
 ## Research Question and Hypotheses
 
