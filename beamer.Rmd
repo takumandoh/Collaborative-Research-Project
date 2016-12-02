@@ -106,7 +106,7 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 
 ![residual vs fitted value](figures/residvsfitted.png)
 
-## Gender equality has negative effects on democracy
+## The result of Fixed OLS
 
 ![fixed effect](figures/pooledandfixed.png)
 
