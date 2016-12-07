@@ -1,11 +1,7 @@
 ---
-<<<<<<< HEAD
-title: "Socio-economic factors for Democracy < South Africa, Botwana, and Kenya compared >  "                           
-author: Takuma Andoh & Bomi Kim
-=======
+
 title: "Socio-economic factors for Democracy <South Africa, Botwana, and Kenya compared>"
 author: Takuma Ahndo & Bomi Kim
->>>>>>> origin/master
 output: revealjs::revealjs_presentation
 bibliography: bibliography.bib
 ---
@@ -48,13 +44,11 @@ fixed <- plm(demo ~ gdppc + pe + mr + gi, data=dfpanel, index=c("country", "year
 ## Research Question and Hypotheses
 
 
-<<<<<<< HEAD
 ## Analysis Methodology 1 - Collecting and Gathering Data
 
 
 ## Analysis Methodology 2 - Descriptive statistics
 =======
->>>>>>> origin/master
 
 ## Democratization in South Africa
 ```{r,echo=FALSE}
