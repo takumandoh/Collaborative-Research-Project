@@ -45,58 +45,79 @@ library(car)
      In the second literature of Democracy and Gender Equality by Caroline Beer, she contrasts the impact of long-term stocks of democracy with the contemporary level of democracy and the participation of women in democracy. This study was conducted in the basis of a generally accepted assumption - also one of our hypotheses- that democracy and gender equality go hand in hand, therefore, democracy promotes the well-being of women. In her previous studies, Beer quotes Richard and Gelleny's research Women's status and economic globalization, which measure the status of women with the United Nations Gender-related Development Index (GDI) and Gender Empowerment Index (GEM) and find the positive relationship between democracy and their indicators of women's status. On the other hand, according to Fish, gender equality causes democracy, suggesting the reverse causality (Islam and authoritarianism, 2002), while Inglehar, Norris, and Welzel find that modernization leads to cultural changes that produce more democracy and gender equality; therefore, the correlation between democracy and gender equality is spurious. (Gender equality and democracy, 2002). Overall from Beer's previous studies, there is not clear statistical evidence which demonstrate the effects of gender equality on democracy and vice versa. Measuring gender equality in terms of the percentage of the population that is female, the ratio of female life expectancy at birth to that of males, the percentage of the total labor force that is female, Beer however finds that, all else equal, long-term democracies tend to promote greater gender equality than authoritarian regimes. Based on the all previous researches, how to measure "democracy" and "gender equality" brings different consequences and the findings are thus ambivalent and inconsistent. 
     John M. Shandra et al. approaches child morality from different theoretical perspectives. By taking political modernization perspective, he quotes from the previous studies that the level of political democracy influences the level of child mortality in developing countries, while Shandra et al. finds only one study which supports for the hypothesized inverse relationship between democracy and child mortality. Setting up the analysis with child mortality rate as a dependent variable, and level of economic development, level of educational attainment, level of female educational attainment, level of political democracy and etc. as independent variables, Shandra et al. finds that the interaction terms between the level of democracy and transnational economic linkages associated with exports and multinational corporations adversely affect child mortality more strongly at lower levels of democracy than at higher levels of democracy. The researchers also lay out their limitations by stating that more multivariate studies are required with more longitudinal data in order to understand the effects of determinants on child mortality. Tanja AJ Houweling et al. in their Determinants of under-5 mortality among the poor and the rich: a cross-national analysis of 43 developing countries which studies how under-5 mortality rates vary with the national level context, they argue that more democratic and ethnically homogeneous countries show significantly lower total under-5 mortality rates in the univariate analysis. While there are poor-rich inequalities in childhood mortality, the research suggests that democracy has a role in reducing the inequalities.  
 
-# Data, Variables, and Methods
+# Data collection and data cleaning
 
-# Descriptive Analyses
+## Data collection
+In order to achieve our research purpose, firstly we have to decide what kind of data is necessary. Our reserach hypothesises are following,
 
-# Multivariate Analyses
+- 1.	There is a significant and positive correlation between socioeconomic variables and democracy.
+- 2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is stronger than any other variables.
+- 3.	The degree of impact of variables on democracy is consistent across selected African countries. 
 
-# Conclusion
+To test these hypothesis, we need measurement of democracy and socioeconomic variables. We used following variables.
 
-# Acknowledgment 
-  We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
+|Variable name|Detail|Source|
+|:-----|:-----|:------|
+|polity4|measurement of democracy|the Center for systemic peace|
+|gdppc|Gross Domestic Production Per Capita|World Bank|
+|pe|Primary ed enrollment|United Nations|
+|mr|Child Mortality under 5|United Nations|
+|gi|gender inequality in labor market|United Nations|
 
 
-# Data Availability
 
-1) Measurement of Democratization
-  1-1) Polity 4
- ?? ??http://www.systemicpeace.org/inscr/p4manualv2015.pdf
-  1-2) 
+- Measurement of democracy
+We used polity4 as a measurement of democracy. Polity4 represents the degree of democratization. The democratization level being higher, the score also being high. We downloaded from this site. http://www.systemicpeace.org/inscrdata.html
 
-2) Gross National Income Level
+- GDP per capita:We bring this data from World Bank database. GDP per capita represents the level of satisfaction in basic needs. The following URLs are WorldBank sites in which we downloaded the time-series data of GDP for each country. http://data.worldbank.org/indicator/NY.GDP.PCAP.CD, http://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BW, http://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=KE
 
-3) primary enrollment
+- Primary education enrollment: We used Primary education enrollment as one of representative of basic needs. The URL is United Nations site in which we downloded the data. http://data.un.org/Data.aspx?q=education&d=UNESCO&f=series%3aE_1
 
-4) Income Inequality
+- Mortality under 5 years old: We used this unit as measurement of health among citizens.http://data.un.org/Data.aspx?q=mortality&d=PopDiv&f=variableID%3a77
 
-5) Gender Inequality in labor force
+- Gender Inequality in labor market: We used gender inequality in labor market to test whether thare is another important factor other than basic needs which is suggested in modernization theory. We calculated this unit as follows,
 
-6) mortality rate under 5
+$$GenderInequality = \frac{EmploymentRateAmongWomen}{EmploymentRateAmongMen}$$
+You can find the data from ILO official site. http://www.ilo.org/ilostat/faces/help_home/data_by_subject/subject-details/indicator-details-by-subject?subject=EMP&indicator=EMP_2EMP_SEX_AGE_NB&datasetCode=YI&collectionCode=ILOEST&_afrLoop=201714902217437#!%40%40%3Findicator%3DEMP_2EMP_SEX_AGE_NB%26subject%3DEMP%26_afrLoop%3D201714902217437%26datasetCode%3DYI%26collectionCode%3DILOEST%26_adf.ctrl-state%3D102r3mzd68_271
 
-# Democratization
 
-```{r,echo=FALSE}
+## Data cleaning and importing into R
 
-#we imported data from world bank and UN
+We downloaded each data as excel and csv file. Then, we subtructed time series data for each variables and countries and put together into three csv files which represents each countries so that we can easily import data into R. So we have three csv files each represents SouthAfrica, Botswana, and Kenya. We will import it into R.
+
+```{r}
 dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
 dfbo <- read.csv("BTW.csv", header = TRUE, sep = ",")
 dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
 dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
-ggplot(dfsa, aes(year, demo)) + geom_line()
-ggplot(dfbo, aes(year, demo)) + geom_line()
-ggplot(dfkn, aes(year, demo)) + geom_line()
-
-
 ```
 
-# Explanetory variables
-|variable name|detail|source|
-|:-----|:-----|:------|
-|gdppc|Gross National Production Per Capita|World Bank|
-|pe|Primary enrollment in education|United Nations|
-|mr|Infant Mortaliry Rate|United Nations|
-|gi|gender inequality in labor market|United Nations|
+Now we suceeded to import all files.
+
+# Descriptive Analyses
+
+In this section, we will povide descriptive statistics of our variables.
+
+## Democratization
+Following graphs are trend of democratization for each countries.
+
+```{r,echo=FALSE}
+ggplot(dfsa, aes(year, demo)) + geom_line() + ggtitle("Democratization in SouthAfrica")
+```
+
+This is the trend of democratization in South Africa. As you can easily see, the level of democratization dramatically increased during 1990~1995. The contributor of this trend is the abolishment of Apartheid. 
+
+```{r,echo=FALSE}
+ggplot(dfbo, aes(year, demo)) + geom_line() + ggtitle("Democratization in Botswana")
+```
+
+```{r,echo=FALSE}
+ggplot(dfkn, aes(year, demo)) + geom_line() + ggtitle("Democratization in Kenya")
+```
+
+As graphs showing, the level of democratization has been fluctuated. Sometimes democracy advances, and sometimes it setbacks. We will investigate the data to clearify what is the driver of these fluctuation. 
+
+# Multivariate Analyses
 
 # OLS results
 ```{r star, results = 'asis', warning=FALSE, message=FALSE, echo=FALSE}
@@ -189,4 +210,9 @@ $$ democratization = -1.496 log(gdppc)+15.793log(pe)-12.087log(mr)-28.940log(gi)
 
 where a_i represents panel specific effects
 
+
 # Conclusion
+
+# Acknowledgment 
+  We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
+
