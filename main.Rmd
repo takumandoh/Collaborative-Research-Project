@@ -16,8 +16,6 @@ library(foreign)
 library(car)
 ```
 
-# Abstract 
-
 # Introduction
 The dictionary meaning of "Democracy" defined by Encyclopedia Britannica is "literally ruled by the people." As we all learned from social science classes from junior high school, democracy is derived from the Greek words "coined from demos -people- and kratos -rule- in the middle of the 5th century BC to denote the political systems" in Athens. In modern usage, democracy often refers to a system of government where the citizens exercise power directly or through electing representatives in order to form a parliament. Thus, it is to be distinguished from monarchy or dictatorship. Yet, there is no consensus on how to define democracy while some of characteristics such as political freedom, rule of law, and equality before the law are commonly seen and identified as basic features of democracy. According to The Economist Intelligence Unit's index of democracy written by Laza Kekic, "the fundamental features of a democracy include government based on majority rule and the consent of the governed, the existence of free and fair elections, the protection of minorities and respect for basic human rights" (1). Also, the United Nations sees democracy as "one of the universal and indivisible core values [which] is based on the freely expressed will of people and closely linked to the rule of law and exercise of human rights and fundamental freedoms." Sometimes, the terms "freedom" and "democracy" are used interchangeably. But democracy, as a set of practices and principles about freedom, rather protects freedom and equality.   
 
@@ -133,7 +131,7 @@ In this section, we will start quantitative analysis. The purpose of this quanti
 
 In this part, we will run OLS regression analysis for each part. We use following model,
 
-$$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}  $$
+$$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon $$
 
 Please see the table in sections above to see details of each variables.
 
@@ -164,7 +162,7 @@ Gender inequality have concensus in South Africa and Kenya. In both country, the
 ## Regression Analysis on panel data
 In this section, we will run regression on panel data(which is include time-series data for every country) to investigate the effects of each explanatory variables in general. Firstly, we will conduct pooled OLS regression by using following regression model.
 
-$$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}  $$
+$$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}+ \epsilon  $$
 
 Table 3 is the result of pooled OLS and previous results for each countries.
 
@@ -185,71 +183,90 @@ lines(smooth.spline(fitted(L4), residuals(L4)))
 
 ```
 
-Apparently, the residuals depends on x values. This means that there are country specific effects on residuals. Therefore, the coefficients are not efficient and unbiased. Then, we will run Breusch-Pegan test to clearlify whether the country specific effects really exists.
+Apparently, the residuals depends on explanatory variables. This means that there are country specific effects on residuals. Therefore, the coefficients are not efficient and unbiased. Then, we will run Breusch-Pegan test to clearlify whether the country specific effects really exists.
 
-# Breusch-Pagan test
+To test the dependancy of residuals on variables, we use following equation to run the BP test,
+
+
+$$\epsilon = \beta_0 + \beta_1x_{1it} +\beta_2x_{2it}+...+\beta_4x_{4it}  $$
+The null hypothesis is following
+
+$$\beta_1 ,\beta_2, \beta_3,\beta_4=0 $$
+The result is below.
+
 ```{r, echo=FALSE}
 bptest(L4)
 ```
 
+Clearly, p-value is below 0.05. Therefore, we have to reject the null hypothesis and heteroscedasticity assumed.
 
-# Fixed-Effect model
+Then, we have to eliminate these panel specific effects. To achieve this purpose, we will use fixed effect model and random effect model. The following two equations are the fixed effect model and random effect model.
+
+$$polity4 = \alpha_i + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon  $$
+$$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}+ \epsilon_i,   $$
+
+Table 4 is the result of pooled OLS, fixed effect model, and random effect model.
 
 ```{r, results = 'asis', warning=FALSE, message=FALSE,echo = FALSE}
 #the previous regression suffered from panel specific effects, which cause to biased and inefficient estimator. Thus, we use Fixed-effect model to eliminate panel specific effects.
 
 pooled <- plm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel, model="pooling")
 fixed <- plm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel, index=c("country", "year"), model="within")
+random <- plm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel, index=c("country", "year"), model="random")
 
-stargazer(pooled, fixed,digits = 3,column.labels=c("PooledOLS","FixedOLS"),title = "pooled OLS and fixed effects OLS", type = 'latex')
+stargazer(pooled, fixed,random,digits = 3,column.labels=c("PooledOLS","Fixed effect","Random effect"),title = "pooled OLS, fixed effects, and random effects", type = 'latex')
 
 #plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
 ```
-constants:
-```{r}
-fixef(fixed)
-```
-# Do panel specific effects exist?
 
+Firstly, we will test whether the panel specific effects is exist. We run the pFtest to investigate country dependant effects.
 ```{r}
 pFtest(fixed,pooled)
 ```
 
-# Breush-Pagan test
+We cannnot reject the null-hypothesis that there is no panel specific effect.
+
+Then, we will run bptest.
 ```{r, echo=FALSE}
 plmtest(fixed,effect="individual",type="bp")
 ```
 we cannot reject the null hypothesis. (residuals doesn't correlated with independent variables)
 
-# Random-Effects OLS
-```{r, results = 'asis', warning=FALSE, message=FALSE,echo = FALSE}
+Therefore, we have to use fixed effect model or random effect model since there are panel specific effects. Then, we need to decide which model is better than others. In order to making a decision, we run Hausman-test.
 
-random <- plm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel, index=c("country", "year"), model="random")
-
-stargazer(pooled, fixed, random,digits=3 ,title = "random effects OLS", type = 'latex')
-
-```
-
-#Hausman test
-```{r, results = 'asis', warning=FALSE, message=FALSE,echo = FALSE}
-
+```{r,echo = FALSE}
 phtest(fixed, random)
 ```
 
-# results
+We have to reject the null hypothesis that the estimated coefficients of RE and FE do not differ. We can conclude that Random effect is inconsistent and biased, we should continue with the Fixed effect estimator.
 
-```{r, results = 'asis', warning=FALSE, message=FALSE, echo=FALSE,figure_width =5}
-options(width = 10)
-stargazer(pooled,fixed,random,digits=3, title = "Regression results", type = 'latex')
-summary(fixed,type = 'latex')
+In conclusion, the following result of fixed effect model is most reliable in this case.
+```{r,results = 'asis',  warning=FALSE, message=FALSE,echo = FALSE}
+stargazer(fixed,digits = 3,title = "Fixed effects OLS", type = 'latex')
+
 ```
 
-$$ democratization = -1.496 log(gdppc)+15.793log(pe)-12.087log(mr)-28.940log(gi)+ \alpha_i $$
+## Testing our research question
 
-where a_i represents panel specific effects
+In this section, we will make a conclusion for our research hypothesises by using the result of fixed effect model.
 
+- 1.	There is a significant and positive correlation between socioeconomic variables and democracy.
+
+Partially TRUE. In our regression analysis, we have three significant variables and two of them have positive effect on the degree of democracy. However, gdppc is tuned to be insignificant, and gi (gender inequality) has negative effect on the democracy.
+
+
+- 2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is stronger than any other variables.
+
+FALSE. The most strong explanatory variable is the gender inequatliy.
+
+
+- 3.	The degree of impact of variables on democracy is consistent across selected African countries. 
+
+FALSE. The degree of impact of variables on democracy is mostly inconsistent across three countries according to the regression analysis for each country. Each country has their specific degree of impact on democracy and some of the variables even has opposit effect on the degree of democracy.
 
 # Conclusion
+
+As discussed above, it can be said that most of our hypothesis are not true in these three countries.
 
 # Acknowledgment 
   We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
