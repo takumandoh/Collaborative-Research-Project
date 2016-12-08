@@ -162,14 +162,21 @@ Mortality rate under 5 years old is in the same chaos like gdppc. They are signi
 Gender inequality have concensus in South Africa and Kenya. In both country, they are significant and negative effects on the degree of democracy. The negative effects means that if the employment rate of women increases comparing to men's, the level of democracy will be deteriorated. This sounds unnatural. However, according to some research, among agricultural countries it is likely to possible that the employment rate of women have negative effect on the democracy because in agricultural society tend to have high employment of women comparing to industrialized society. It can be said that this result can be evidence for assumptions of such research.
 
 ## Regression Analysis on panel data
+In this section, we will run regression on panel data(which is include time-series data for every country) to investigate the effects of each explanatory variables in general. Firstly, we will conduct pooled OLS regression by using following regression model.
 
-## Pooled OLS
+$$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}  $$
+
+Table 3 is the result of pooled OLS and previous results for each countries.
 
 ```{r, results = 'asis', warning=FALSE, message=FALSE, echo=FALSE}
 #Then, we conducted pooled OLS. In this model, we included all three countries and run the regression.
 L4 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel)
-stargazer(L4,digits = 2,title = "Pooled OLS", type = 'latex')
+stargazer(L1, L2, L3,L4, digits = 2,column.labels=c("SouthAfrica","Botswana","Kenya", "Pooled OLS"),title = "Regression results of pooled OLS and for each countries", type = 'latex')
 ```
+
+Now the explanatory variables except gdppc turned out to be significant. However, in the same time, the adjusted R-squared become less than 0.8. Is it possible to treat these coefficients as efficient and unbiased?
+
+
 
 # residual vs fitted value
 
