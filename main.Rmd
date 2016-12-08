@@ -176,21 +176,19 @@ stargazer(L1, L2, L3,L4, digits = 2,column.labels=c("SouthAfrica","Botswana","Ke
 
 Now the explanatory variables except gdppc turned out to be significant. However, in the same time, the adjusted R-squared become less than 0.8. Is it possible to treat these coefficients as efficient and unbiased?
 
-
-
-# residual vs fitted value
+We plot the residual versus fitted vaue to investigate whether the country specific effects exist. The following graph is the results.
 
 ```{r, echo=FALSE}
 plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
 abline(h=0, lty=2)
 lines(smooth.spline(fitted(L4), residuals(L4)))
-#apparently, this regression suffered from panel specific effects. Because, the 
 
 ```
 
+Apparently, the residuals depends on x values. This means that there are country specific effects on residuals. Therefore, the coefficients are not efficient and unbiased. Then, we will run Breusch-Pegan test to clearlify whether the country specific effects really exists.
+
 # Breusch-Pagan test
 ```{r, echo=FALSE}
-#apparently, this regression suffered from panel specific effects. Because, the 
 bptest(L4)
 ```
 
