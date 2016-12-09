@@ -17,52 +17,53 @@ library(foreign)
 library(car)
 ```
 
+# Abstract
+
+This paper examines the effects of socioeconomic status on democratization. The research is conducted on the basis of the data from different sources, such as the World Bank, the United Nations, and the Polity Project, with three selected countries: South Africa, Botswana, and Kenya. Using OLS and panel data regression models, we find evidence that GDP per capita is not statistically significant on democratization, while Child mortality rate under 5 and Primary education enrollment rate are having strong explanatory power on the level of democracy. Interestingly, however, we also find that gender equality has rather negative effect on democracy.   
+
 # Introduction
-The dictionary meaning of "Democracy" defined by Encyclopedia Britannica is "literally ruled by the people." As we all learned from social science classes from junior high school, democracy is derived from the Greek words "coined from demos -people- and kratos -rule- in the middle of the 5th century BC to denote the political systems" in Athens. In modern usage, democracy often refers to a system of government where the citizens exercise power directly or through electing representatives in order to form a parliament. Thus, it is to be distinguished from monarchy or dictatorship. Yet, there is no consensus on how to define democracy while some of characteristics such as political freedom, rule of law, and equality before the law are commonly seen and identified as basic features of democracy. According to The Economist Intelligence Unit's index of democracy written by Laza Kekic, "the fundamental features of a democracy include government based on majority rule and the consent of the governed, the existence of free and fair elections, the protection of minorities and respect for basic human rights" (1). Also, the United Nations sees democracy as "one of the universal and indivisible core values [which] is based on the freely expressed will of people and closely linked to the rule of law and exercise of human rights and fundamental freedoms." Sometimes, the terms "freedom" and "democracy" are used interchangeably. But democracy, as a set of practices and principles about freedom, rather protects freedom and equality.   
 
-Measuring democracy also has been contested that there still have ongoing debates on this subject. The most widely-known measure is from the US-based Freedom House organization, which aggregates scores of 25 indicators up to 100, on a 1 to 7 rating scale, from political rights and civil liberties. For the report of 2016, Freedom House evaluated the state of freedom in 195 countries and 15 territories during calendar year 2015, and 125 countries are classified as electoral democracies. The Freedom House's electoral democracy measure is a thin or minimalist whose measure of democracy may differ from thick or wider measures which include various aspects of social and political culture in democratic societies. Another organization where also provides measures of democracy and regime types based on minimalist definitions is The Polity Project. Specifically focused on the institutionalized authority patterns of the state regime, The Polity Project "examines concomitant qualities of democratic and autocratic authority in governing institutions [.to] envision a spectrum of governing authority that spans from fully institutionalized autocracies through mixed, or incoherent, authority regimes to fully institutionalized democracies (Center for Systemic Peace). For our current research, this Polity data from the Polity Project will be used. The detailed information with regard to the "Polity Score" will be discussed at the "Data, Variables, and Methods" section. 
+The dictionary meaning of "Democracy" defined by Encyclopedia Britannica is "literally ruled by the people." As we all learned from social science classes, democracy is derived from the Greek words "coined from demos -people- and kratos -rule- in the middle of the 5th century BC to denote the political systems" in Athens. In modern usage, democracy often refers to a system of government where the citizens exercise power directly or through electing representatives in order to form a parliament. Thus, it is to be distinguished from monarchy or dictatorship. Yet, there is no consensus on how to define democracy while some of characteristics such as political freedom, rule of law, and equality before the law are commonly seen and identified as basic features of democracy. According to The Economist Intelligence Unit's index of democracy written by Laza Kekic, "the fundamental features of a democracy include government based on majority rule and the consent of the governed, the existence of free and fair elections, the protection of minorities and respect for basic human rights" (1). Also, the United Nations sees democracy as "one of the universal and indivisible core values [which] is based on the freely expressed will of people and closely linked to the rule of law and exercise of human rights and fundamental freedoms." Sometimes, the terms "freedom" and "democracy" are used interchangeably. But democracy, as a set of practices and principles about freedom, rather protects freedom and equality.
 
-Following the introduction, this research paper will proceed by presenting background researches about democratization and its history in Africa to set up the baseline and link to our research question and hypotheses at the following section. After that, details about data, variable selections, and overall statistical methods will be addressed along with explanations how the authors collected, cleaned, and utilized each variable. Based on the cleaned data, the authors will provide descriptive analyses as a preliminary stage, and then the multivariate analyses conducted based on the various statistical models will be interpreted by concentrating on the effects of four socio-economic variables on democratization in three selected African countries. 
+Measuring democracy also has been contested that there still have ongoing debates on this subject. The most widely-known measure is from the US-based Freedom House organization, which aggregates scores of 25 indicators up to 100, on a 1 to 7 rating scale, from political rights and civil liberties. For the report of 2016, Freedom House evaluated the state of freedom in 195 countries and 15 territories during calendar year 2015, and 125 countries are classified as electoral democracies. The Freedom House's electoral democracy measure is a thin or minimalist whose measure of democracy may differ from thick or wider measures which include various aspects of social and political culture in democratic societies. Another organization where also provides measures of democracy and regime types based on minimalist definitions is The Polity Project. Specifically focused on the institutionalized authority patterns of the state regime, The Polity Project "examines concomitant qualities of democratic and autocratic authority in governing institutions [...to] envision a spectrum of governing authority that spans from fully institutionalized autocracies through mixed, or incoherent, authority regimes to fully institutionalized democracies (Center for Systemic Peace) based on "The Polity conceptual scheme." For our current research, this Polity data which include information on the institutions of the central government and on political scope of that authority from the Polity Project is used. Capturing such regime authority spectrum on 21 point scale from -10 (hereditary monarchy) to +10 (consolidated democracy), "The Polity Scores" are categorized into autocracies, anocracies, and democracies.  
 
+Following the introduction, this research paper will proceed by presenting background researches about democratization and its history in Africa to set up the baseline and link to our research question and hypotheses at the following section. After that, details about data, variable selections, and overall statistical methods will be addressed along with explanations how the authors collected, cleaned, and utilized each data. Based on the cleaned data, the authors will provide descriptive analyses as a preliminary stage, and then the multivariate analyses conducted based on the various statistical models will be interpreted by concentrating on the effects of four socio-economic variables on democratization in three selected African countries.
 
 # Background about Democratization and its brief history in Africa
 
-Democratization, according to An Agenda for Democratization by Boutros Boutros-Ghali, the formal Secretary General of the United Nations, "is a process which leads to a more open, more participatory, less authoritarian society" (1) within a sovereign state. Between the years 1974 and 1990, the world experienced "Third Wave" of democratization which had changed 30 countries from authoritarian regimes to democracies. The penetration and success of democratization in this time period displayed different examples and outcomes, and this raised the questions for the causes of change between political regimes and how the process of democratization sustained in non-democratic societies. 
+Democratization, according to An Agenda for Democratization by Boutros Boutros-Ghali, the formal Secretary General of the United Nations, "is a process which leads to a more open, more participatory, less authoritarian society" (1) within a sovereign state. Between the years 1974 and 1990, the world experienced "Third Wave" of democratization which had changed 30 countries from authoritarian regimes to democracies. The penetration and success of democratization in this time period displayed different examples and outcomes, and this raised the questions for the causes of change between political regimes and how the process of democratization sustained in non-democratic societies.
+From his On Democracy, Robert Dahl suggests three conditions that are essential to attain democratic institutions through democratization and they are: control over military and police forces by elected officials; the absence of foreign intervention opposing democratization; democratic beliefs and political culture; [possibly] modern market economy and economic growth; and the absence of cultural pluralism. Similarly, Samuel Huntington, from his book The Third Wave, argues that democracy could be realized through one of three main types of democratization process and they are: transformation led primarily by the ruling elites; replacement where the opposition plays the main role; and transplacement, a product of active engagement of both sides. With looking into these arguments, it can be claimed that there is no single precondition or factor which perfectly lead the country to be democratized. It has to be a combination of features which should be uniquely and country specifically taken since the strength of each factor may bring different impacts to country by country.
 
-From his On Democracy, Robert Dahl suggests three conditions that are essential to attain democratic institutions through democratization and they are: control over military and police forces by elected officials; the absence of foreign intervention opposing democratization; democratic beliefs and political culture; [possibly] modern market economy and economic growth; and the absence of cultural pluralism. Similarly, Samuel Huntington, from his book The Third Wave, argues that democracy could be realized through one of three main types of democratization process and they are: transformation led primarily by the ruling elites; replacement where the opposition plays the main role; and transplacement, a product of active engagement of both sides. With looking into these arguments, it can be claimed that there is no single precondition or factor which perfectly lead the country to be democratized. It has to be a combination of features which should be uniquely and country specifically taken since the strength of each factor may bring different impacts to country by country.   
-
-Africa has also been the wave of political transitions from various types of dictatorships to more open political systems by accepting democracy as a political alternative. However, to understand the democracy and the democratization in Africa, its background of "the relatively recent end to colonial rule [.], post-colonial utopian African socialism, [.] and economic regression in the 1980s" (Samarasinghe, 1994) has to be taken into account. In particular, the colonial period needs to be understood since it was colonial rulers who were autocratic and discouraged indigenous people to build democratic institutions and societies. Even after the independence, the artificiality of Africa's national borders and of the societies within worsened the problem and prevented the transition to democracy. During the first half of 1990s, many African countries had one party and military rule which were followed by political protests and competitive elections with democratic trend indicators continuing to rise. Although the surge of democratic trends with the liberalized political system swept across African countries during this time period, they could not proceed to the full democracy. The repetition of the onset of democratization and frequent slips back to authoritarianism took place in Africa due to a set of existing political structures which had been governed through coercion and a lack of institutional capacity for the provision of basic services and law and order. In spite of all these negative factors, many of African countries has been constantly making progress towards the democracy not only by revolting against authoritarian leaders based on demand-driven activities, but also by the improvement of other numerous socio-economic indicators which may influence the political transformation, even though the speed of transition is different and non-linear. 
+Africa has also been the wave of political transitions from various types of dictatorships to more open political systems by accepting democracy as a political alternative. However, to understand the democracy and the democratization in Africa, its background of "the relatively recent end to colonial rule, post-colonial utopian African socialism, and economic regression in the 1980s" (Samarasinghe, 1994) has to be taken into account. In particular, the colonial period needs to be understood since it was colonial rulers who were autocratic and discouraged indigenous people to build democratic institutions and societies. Even after the independence, the artificiality of Africa's national borders and of the societies within worsened the problem and prevented the transition to democracy. During the first half of 1990s, many African countries had one party and military rule which were followed by political protests and competitive elections with democratic trend indicators continuing to rise. Although the surge of democratic trends with the liberalized political system swept across African countries during this time period, they could not proceed to the full democracy. The repetition of the onset of democratization and frequent slips back to authoritarianism took place in Africa due to a set of existing political structures which had been governed through coercion and a lack of institutional capacity for the provision of basic services and law and order. In spite of all these negative factors, many of African countries has been constantly making progress towards the democracy not only by revolting against authoritarian leaders based on demand-driven activities, but also by the improvement of other numerous socio-economic indicators which may influence the political transformation, even though the speed of transition is different and non-linear.
 
 # Research Question and Hypotheses
 
-The current research aims to help our understanding of the democracy with regard to its concept structure by investigating the effects of various socio-economic variables on democratization in African countries. Therefore, our research question is to assess how four important socioeconomic variables, namely income growth, primary education enrollment, gender equality in labor force, and child mortality, affect the regime change to democracy and the consolidation of democratic institutions through sustaining the process of democratization. By analyzing the relationship between socioeconomic components and democracy, the authors are ultimately trying to investigate each variable's impact on democratization and to compare the degree of effects not only among indicators but also across selected countries, South Africa, Botswana, and Kenya. Our research question is on the basis of one of the most well-known theories, modernization, which claims that socio-economic development brings about democracy. According to modernization theory, basic needs such as food, shelter and health must be satisfied to achieve democracy. Dhal also argues that "adequate institutions and a citizenry, especially a middle class, receptive to democratic ideals, must exist for democratization to take place" (Samarasinghe, 17). 
+The current research aims to help our understanding of the democracy with regard to its concept structure by investigating the effects of various socio-economic variables on democratization in African countries. Therefore, our research question is to assess how four important socioeconomic variables, namely income growth, primary education enrollment, gender equality in labor force, and child mortality, affect the regime change to democracy and the consolidation of democratic institutions through sustaining the process of democratization. By analyzing the relationship between socioeconomic components and democracy, the authors are ultimately trying to investigate each variable's impact on democratization and to compare the degree of effects not only among indicators but also across selected countries; South Africa, Botswana, and Kenya. 
 
-Sub-Saharan African countries, where continuously have been experiencing democratic progress and setbacks due to frequent violence triggered by political conflicts in spite of their future development potentials, are still more democratic today than in any other periods of time. From the authors' academic interests as well as sincere hope for more meaningful processes towards democratization, African countries are selected to be studied, compared, and tested for the current research study. In order to effectively analyze and answer to the research question, following three hypotheses are set up to be tested:
+Our research question is on the basis of one of the most well-known theories, modernization, which claims that socio-economic development brings about democracy. According to modernization theory, basic needs such as food, shelter and health must be satisfied to achieve democracy. Dhal also argues that "adequate institutions and a citizenry, especially a middle class, receptive to democratic ideals, must exist for democratization to take place" (Samarasinghe, 17).
+Sub-Saharan African countries, where continuously have been experiencing democratic progress and setbacks due to frequent violence triggered by political conflicts in spite of their future development potentials, are still more democratic today than in any other periods of time. From the authors' academic interests as well as sincere hope for more meaningful processes towards democratic development, African countries are selected to be studied, compared, and tested for the current research study. In order to effectively analyze and answer to the research question, following three hypotheses are set up to be tested:
 
 1.	There is a significant and positive correlation between socioeconomic variables and democracy.
-2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is stronger than any other variables.
-3.	The degree of impact of variables on democracy is consistent across selected African countries.     
+2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is the strongest among any other variables.
+3.	The degree of impact of variables on democracy is consistent across selected African countries.
 
 # Literature Review
 
-With regard to measuring democracy, Robert J. Barro, for his paper Determinants of Democracy, used the indicator of electoral rights compiled by Gastil and his followers at Freedom House from 1972 to 1995. He observed the sub-Saharan African's decline in electoral rights after 1960 and back to rise in 1995. According to his argument, "many of African countries [experienced the pattern of fluctuation because they] began with ostensibly democratic institutions when they became independent in the early 1960s, but most evolved into one-party dictatorships by the early 1970s," (1999) and also the democratization in Africa since 1989 was substantial. Although the authors of this current research paper used different data to measure democracy, we also observed sub-Saharan African's fluctuations in democracy, implying that there are some drivers that affects the level of democracy overtime. 
+With regard to measuring democracy, Robert J. Barro (see @barro_1999), for his paper Determinants of Democracy, used the indicator of electoral rights compiled by Gastil and his followers at Freedom House from 1972 to 1995. He observed the sub-Saharan African's decline in electoral rights after 1960 and back to rise in 1995. According to his argument, "many of African countries [experienced the pattern of fluctuation because they] began with ostensibly democratic institutions when they became independent in the early 1960s, but most evolved into one-party dictatorships by the early 1970s," and also the democratization in Africa since 1989 was substantial. Although the authors of this current research paper used different data to measure democracy, sub-Saharan African's fluctuations in democracy are also observed, implying that there are some drivers that affect the level of democracy overtime.
 
-Further, Barro quotes Lipset's argument based on the Lipset hypothesis, which claims that increased education and an enlarged middle class are key elements for the extent of democracy, as in general increases in various measures of the standard of living forecast a gradual rise in democracy. To test this, Barro ran the basic regression for electoral rights -democracy- with the explanatory variables: the log of real per capita GDP and measures of educational attainment. According to his data results, the schooling figures that turn out to have the most explanatory power are the average years of attainment at the primary level for persons aged 25. In regard to the correlation between GPD and democracy, Barro claims that more prosperous places are more likely to be democratic, displaying positive upward trends between per capita GDP and schooling to democracy. Yet, Barro states the necessity for the development of theories of the determination of democracy due to a lack of theoretical models of the relation. 
+Further, Barro (see @barro_1999) quotes Lipset's argument based on the Lipset hypothesis, which claims that increased education and an enlarged middle class are key elements for the extent of democracy, as in general increases in various measures of the standard of living forecast a gradual rise in democracy. To test this, Barro ran the basic regression for electoral rights -democracy- with the explanatory variables: the log of real per capita GDP and measures of educational attainment. According to his data results, the schooling figures that turn out to have the most explanatory power are the average years of attainment at the primary level for persons aged 25. In regard to the correlation between GPD and democracy, Barro claims that more prosperous places are more likely to be democratic, displaying positive upward trends between per capita GDP and schooling to democracy. Yet, Barro states the necessity for the development of theories of the determination of democracy due to a lack of theoretical models of the relation.
 
-In the second literature of Democracy and Gender Equality by Caroline Beer, she contrasts the impact of long-term stocks of democracy with the contemporary level of democracy and the participation of women in democracy. This study was conducted in the basis of a generally accepted assumption - also one of our hypotheses- that democracy and gender equality go hand in hand, therefore, democracy promotes the well-being of women. In her previous studies, Beer quotes Richard and Gelleny's research Women's status and economic globalization, which measure the status of women with the United Nations Gender-related Development Index (GDI) and Gender Empowerment Index (GEM) and find the positive relationship between democracy and their indicators of women's status. On the other hand, according to Fish, gender equality causes democracy, suggesting the reverse causality (Islam and authoritarianism, 2002), while Inglehar, Norris, and Welzel find that modernization leads to cultural changes that produce more democracy and gender equality; therefore, the correlation between democracy and gender equality is spurious. (Gender equality and democracy, 2002). Overall from Beer's previous studies, there is not clear statistical evidence which demonstrate the effects of gender equality on democracy and vice versa. Measuring gender equality in terms of the percentage of the population that is female, the ratio of female life expectancy at birth to that of males, the percentage of the total labor force that is female, Beer however finds that, all else equal, long-term democracies tend to promote greater gender equality than authoritarian regimes. Based on the all previous researches, how to measure "democracy" and "gender equality" brings different consequences and the findings are thus ambivalent and inconsistent. 
+In the second literature of Democracy and Gender Equality by Caroline Beer (see @beer_2009), she contrasts the impact of long-term stocks of democracy with the contemporary level of democracy and the participation of women in democracy. This study was conducted in the basis of a generally accepted assumption - also one of our hypotheses- that democracy and gender equality go hand in hand, therefore, democracy promotes the well-being of women. In her previous studies, Beer quotes Richard and Gelleny's research Women's status and economic globalization, which measure the status of women with the United Nations Gender-related Development Index (GDI) and Gender Empowerment Index (GEM) and find the positive relationship between democracy and their indicators of women's status. On the other hand, according to Fish from Beer's study, gender equality causes democracy, suggesting the reverse causality (Islam and authoritarianism, 2002), while Inglehar, Norris, and Welzel find that modernization leads to cultural changes that produce more democracy and gender equality; therefore, the correlation between democracy and gender equality is spurious. (Gender equality and democracy, 2002). Overall from Beer's previous studies, there is not clear statistical evidence which demonstrate the effects of gender equality on democracy and vice versa. Measuring gender equality in terms of the percentage of the population that is female, the ratio of female life expectancy at birth to that of males, the percentage of the total labor force that is female, Beer however finds that, all else equal, long-term democracies tend to promote greater gender equality than authoritarian regimes. Based on the all previous researches, how to measure "democracy" and "gender equality" brings different consequences and the findings are thus ambivalent and inconsistent.
 
-John M. Shandra et al. approaches child morality from different theoretical perspectives. By taking political modernization perspective, he quotes from the previous studies that the level of political democracy influences the level of child mortality in developing countries, while Shandra et al. finds only one study which supports for the hypothesized inverse relationship between democracy and child mortality. Setting up the analysis with child mortality rate as a dependent variable, and level of economic development, level of educational attainment, level of female educational attainment, level of political democracy and etc. as independent variables, Shandra et al. finds that the interaction terms between the level of democracy and transnational economic linkages associated with exports and multinational corporations adversely affect child mortality more strongly at lower levels of democracy than at higher levels of democracy. The researchers also lay out their limitations by stating that more multivariate studies are required with more longitudinal data in order to understand the effects of determinants on child mortality. Tanja AJ Houweling et al. in their Determinants of under-5 mortality among the poor and the rich: a cross-national analysis of 43 developing countries which studies how under-5 mortality rates vary with the national level context, they argue that more democratic and ethnically homogeneous countries show significantly lower total under-5 mortality rates in the univariate analysis. While there are poor-rich inequalities in childhood mortality, the research suggests that democracy has a role in reducing the inequalities.  
+John M. Shandra et al. approaches child mortality from different theoretical perspectives (see @shandra_nobles_london_williamson_2005). By taking political modernization perspective, he quotes from the previous studies that the level of political democracy influences the level of child mortality in developing countries, while Shandra et al. finds only one study which supports for the hypothesized inverse relationship between democracy and child mortality. Setting up the analysis with child mortality rate as a dependent variable, and level of economic development, level of educational attainment, level of female educational attainment, level of political democracy and etc. as independent variables, Shandra et al. finds that the interaction terms between the level of democracy and transnational economic linkages associated with exports and multinational corporations adversely affect child mortality more strongly at lower levels of democracy than at higher levels of democracy. The researchers also lay out their limitations by stating that more multivariate studies are required with more longitudinal data in order to understand the effects of determinants on child mortality. Tanja AJ Houweling et al. in their Determinants of under-5 mortality among the poor and the rich: a cross-national analysis of 43 developing countries which studies how under-5 mortality rates vary with the national level context, they argue that more democratic and ethnically homogeneous countries show significantly lower total under-5 mortality rates in the univariate analysis (see @houweling_2005). While there are poor-rich inequalities in childhood mortality, the research suggests that democracy has a role in reducing the inequalities.
 
-# Data collection and data cleaning
+# Data, Variables, and Methods
+
+Among all other African countries, South Africa, Botswana, and Kenya are chosen to be compared for this research. This selection was done based on the World Economic Forum's Global Competitiveness Report 2015-2016, which assesses the competitiveness of 140 world economies. With the emphasis of the region's need to prioritize competitiveness and enhance reforms, the report ranked top 10 performers in the sub-Saharan region and the authors selected 3 countries according to their ranks on top, middle, and bottom; South Africa (49th), Botswana(71th) and Kenya (99th). The authors wanted to observe both similarities and differences on the relationship between socioeconomic variables and democracy across diversified countries in terms of economic performances and their competitiveness. 
 
 ## Data collection
-In order to achieve our research purpose, firstly we have to decide what kind of data is necessary. Our reserach hypothesises are following,
 
-- 1.	There is a significant and positive correlation between socioeconomic variables and democracy.
-- 2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is stronger than any other variables.
-- 3.	The degree of impact of variables on democracy is consistent across selected African countries. 
-
-To test these hypothesis, we need measurement of democracy and socioeconomic variables. We used following variables.
+The analysis with regard to the relationship between socioeconomic status and democracy in this research is studied by using three different data sources. Also, in order to test three hypotheses, the authors selected four socioeconomic indicators as explanatory variables, while democracy being a dependent variable. The names, details and sources for those variables are shown in the chart below. 
 
 |Variable name|Detail|Source|
 |:-----|:-----|:------|
@@ -73,25 +74,35 @@ To test these hypothesis, we need measurement of democracy and socioeconomic var
 |gi|gender inequality in labor market|United Nations|
 
 
+.	Dependent Variable- Democracy: In the current research, Polity IV Project's measurement of democracy is used. Polity IV represents the degree of democratization: when the democratization level is higher, the score is also high. The data can be downloaded from this site.
 
-- Measurement of democracy
-We used polity4 as a measurement of democracy. Polity4 represents the degree of democratization. The democratization level being higher, the score also being high. We downloaded from this site. http://www.systemicpeace.org/inscrdata.html
+http://www.systemicpeace.org/inscrdata.html
 
-- GDP per capita:We bring this data from World Bank database. GDP per capita represents the level of satisfaction in basic needs. The following URLs are WorldBank sites in which we downloaded the time-series data of GDP for each country. http://data.worldbank.org/indicator/NY.GDP.PCAP.CD, http://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BW, http://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=KE
+.	Explanatory Variable 1- GDP per capita: This data comes from the World Bank database. GDP per capita represents the level of standard living by indicating how prosperous a country feels to each of its citizens. The following URLs are WorldBank sites in which the data for the time-series of GDP for each country were downloaded.
 
-- Primary education enrollment: We used Primary education enrollment as one of representative of basic needs. The URL is United Nations site in which we downloded the data. http://data.un.org/Data.aspx?q=education&d=UNESCO&f=series%3aE_1
+http://data.worldbank.org/indicator/NY.GDP.PCAP.CD, http://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BW, http://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=KE
 
-- Mortality under 5 years old: We used this unit as measurement of health among citizens.http://data.un.org/Data.aspx?q=mortality&d=PopDiv&f=variableID%3a77
+.	Explanatory Variable 2-Primary education enrollment: According to Lipset, higher levels of education instill democratic values as education broadens students' outlooks by enabling them to understand the norms of democracy. Thus, primary education enrollment is included in this study from the expectation that it may generate supports for democracy in the African region.  The following is the URL of the United Nations Database site in which the data was downloaded.
 
-- Gender Inequality in labor market: We used gender inequality in labor market to test whether thare is another important factor other than basic needs which is suggested in modernization theory. We calculated this unit as follows,
+http://data.un.org/Data.aspx?q=education&d=UNESCO&f=series%3aE_1
+
+.	Explanatory Variable 3-Mortality rate under 5 years old: Under-5 mortality is associated with levels of public spending and health care; thus, this variable is included from the assumption that there is an association between welfare and the promotion of democracy. The following is the URL where the data came from.  
+
+http://data.un.org/Data.aspx?q=mortality&d=PopDiv&f=variableID%3a77
+
+.	Explanatory Variable 4-Gender Inequality in labor market: The measure of gender inequality in labor market is used to test whether the participation of women in workforce is related to democracy. The calculation of the unit as follows: 
 
 $$GenderInequality = \frac{EmploymentRateAmongWomen}{EmploymentRateAmongMen}$$
-You can find the data from ILO official site. http://www.ilo.org/ilostat/faces/help_home/data_by_subject/subject-details/indicator-details-by-subject?subject=EMP&indicator=EMP_2EMP_SEX_AGE_NB&datasetCode=YI&collectionCode=ILOEST&_afrLoop=201714902217437#!%40%40%3Findicator%3DEMP_2EMP_SEX_AGE_NB%26subject%3DEMP%26_afrLoop%3D201714902217437%26datasetCode%3DYI%26collectionCode%3DILOEST%26_adf.ctrl-state%3D102r3mzd68_271
+
+
+The data can be found from International Labor Organization (IL0) website. 
+
+http://www.ilo.org/ilostat/faces/help_home/data_by_subject/subject-details/indicator-details-by-subject?subject=EMP&indicator=EMP_2EMP_SEX_AGE_NB&datasetCode=YI&collectionCode=ILOEST&_afrLoop=201714902217437#!%40%40%3Findicator%3DEMP_2EMP_SEX_AGE_NB%26subject%3DEMP%26_afrLoop%3D201714902217437%26datasetCode%3DYI%26collectionCode%3DILOEST%26_adf.ctrl-state%3D102r3mzd68_271
 
 
 ## Data cleaning and importing into R
 
-We downloaded each data as excel and csv file. Then, we subtructed time series data for each variables and countries and put together into three csv files which represents each countries so that we can easily import data into R. So we have three csv files each represents SouthAfrica, Botswana, and Kenya. We will import it into R.
+Each data set is downloaded with excel and csv file. Then, each variable and country are extracted for time-series data, which are put together into three csv files. They represent each country so that they can be easily imported into R. That means, there are three csv files that each represents South Africa, Botswana, and Kenya. 
 
 ```{r}
 dfsa <- read.csv("SA.csv", header = TRUE, sep = ",")
@@ -100,45 +111,45 @@ dfkn <- read.csv("KNY.csv", header = TRUE, sep = ",")
 dfpanel <- read.csv("panel.csv", header = TRUE, sep = ",")
 ```
 
-Now we suceeded to import all files.
+All files are successfully imported to R. 
 
 # Descriptive Analyses
 
-In this section, we will povide descriptive statistics of our variables.
-
 ## Democratization
-Following graphs are trend of democratization for each countries.
+
+Following graphs are the trends of democratization for each country.
 
 ```{r,warning=FALSE, message=FALSE,echo=FALSE}
 ggplot(dfsa, aes(year, demo)) + geom_line() + ggtitle("Democratization in SouthAfrica")
 ```
 
-This is the trend of democratization in South Africa. As you can easily see, the level of democratization dramatically increased during 1990~1995. The contributor of this trend is the abolishment of Apartheid. 
+The above graph shows the trend of democratization in South Africa. As easily can be seen, the level of democracy dramatically spiked during the early 1990s, which implies the abolishment of Apartheid and the start of free election. 
 
 ```{r,warning=FALSE, message=FALSE,echo=FALSE}
 ggplot(dfbo, aes(year, demo)) + geom_line() + ggtitle("Democratization in Botswana")
 ```
 
+The graph of Botswana's level of democratization reveals that there had two big leaps in the mid-1980s and the mid-1990s, and it has been stable since then. Compared to South Africa whose highest point is 9.0, Botswana's highest level of democracy is 8.0 despite the fact that Botswana has been practicing democracy since its independence in 1965 and maintained multi-party democratic system for relatively longer periods than neighboring countries. 
+
 ```{r,warning=FALSE, message=FALSE,echo=FALSE}
 ggplot(dfkn, aes(year, demo)) + geom_line() + ggtitle("Democratization in Kenya")
 ```
 
-As graphs showing, the level of democratization has been fluctuated. Sometimes democracy advances, and sometimes it setbacks. We will investigate the data to clearify what is the driver of these fluctuation. 
+Compared to both South Africa and Botswana, the level of democracy in Kenya shows the most dynamic fluctuations in the graph. Between the 1960s and 1980s, democracy was deteriorating greatly and going down to negative scales but, from 1980 till 2000, democracy advances step by step. During the early 2000, Kenya also finally experiences high jump on the level of democracy to above 6, which reflects country's first general elections under a new Constitution in 2013.
 
 # Multivariate Analyses
-In this section, we will start quantitative analysis. The purpose of this quantitative research is to clearlify the effect of socioeconomic factors on the dgree of democratization and compare the each coefficients among countries. So we devide this part into three part. In the first part, we will investigate country specific coefficients for each variables by running regression analysis for each country and compare the coefficients among countries to make the characteristics of each countries clear. In the second part, we will run panel regression to investigate general effect of each variables on the degree of democratization. To achieve this purpose, we will use several models to eliminate country specific effects, compare the results of each models and decide the most effective model (the model which provide unbiased and most efficient coefficients). In the final part, we discuss the results and test our hypothesises.  
 
-## Regression analysis for each country
+This section of the analyses will offer a look at the effect of socioeconomic factors on the degree of democratization and the comparison of each coefficient among countries through quantitative analysis method. Dividing the section into three parts, the authors will investigate country-specific coefficients for each variable in each country by using regression analysis in the first part. It will allow us to make clear comparisons among coefficients across countries. In the second part, the authors will employ the panel regression model in order to observe the general effect of each variable on the level of democratization. To achieve this purpose, several different models will be utilized so as to eliminate country-specific effects, to compare the results of each model, and to decide the most effective model among all others so that the authors could get unbiased and most efficient coefficients. In the final part, the overall results and answers to the hypotheses will be provided.
 
-In this part, we will run OLS regression analysis for each part. We use following model,
+## 1. Regression analysis for each country
+
+In this part, the OLS regression analysis is conducted with a following model:
 
 $$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon $$
 
-Please see the table in sections above to see details of each variables.
+Logarithm is used for each explanatory variable in order to compare the effect of each variable on the dependent variable. Because of the huge difference in scale between variables, logarithm has to be utilized. With the use of logarithm, all the variables are transformed into percentage changes, which allows easier comparisons in the same scale.
 
-We used logalism for each explanatory variables since we want to compare the effect of each variables. Because of huge difference in the scale of each variables, we cannot compare the effects without logalism. If we use logarism transformation in each variables, the changes in each variables are transformed into parcentage change. Therefore, we can compare the effects of each variables in same scale.
-
-Then, we run the OLS regression for each country. The table 2 is the results of each regressions. This results includes coefficients value and its significant level.
+Table 2 shows the results of OLS regression for each country. These results include coefficient values and their significant levels.
 
 ```{r star, results = 'asis', echo=FALSE}
 library(stargazer, quietly = TRUE)
@@ -150,22 +161,23 @@ L3 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfkn)
 stargazer(L1, L2, L3,digits = 2,column.labels=c("SouthAfrica","Botswana","Kenya"),title = "Regression results for each country", type = 'latex')
 ```
 
-As you can see the table 2, each country has different value of coefficients and significance level for explanatory variables. For example, in South Africa gdppc has negative effect on the degree of democracy while in Botswana gdppc has positive effect. In Kenya, gdppc is even not significant. This uniqueness among each country is the same for other explanatory variables. We try to extract some concensus from these results.
+According to Table 2, each country has different values of coefficients and significant levels for explanatory variables.
 
-There is no concensus in GDP per capita. In South Africa gdppc has negative effect on the degree of democracy while in Botswana gdppc has positive effect. In Kenya, gdppc is even not significant. This means that the effectiveness of gdp per capita on the degree of democracy is different for each country.
+- In South Africa, gdppc has a negative effect on the degree of democratization, while gdppc has a positive effect in Botswana. In Kenya, gdppc is not even statistically significant. This means that the effectiveness of GDP per capita on the degree of democracy is different across countries. 
 
-Primary enrollment is insignificant in all country. This result seems contradicting to previous researches in which education level is significant for democracy.
+- Primary education enrollment is statistically not significant in all countries. Such result seems contradictory to the previous researches, which find that the education level is significant for democracy.
 
-Mortality rate under 5 years old is in the same chaos like gdppc. They are significant in Botswana and Kenya, however, the effects on the degree of democracy is opposit way. In Botswana, they have positive effect. That means if the number of dead children increases, the democracy also advance. On the other hand, they have negative effect in Kenya. That means if the number of dead children increases, the democracy will setback.
+- Mortality rate under 5 years old shows inconsistencies like gdppc. This variable is significant in Botswana and Kenya, and its effect on the degree of democracy in Botswana is positive while it is negative in Kenya. If the effect is positive, it means that higher number of mortality increases the level democracy. On the other hand, having a negative effect means that as the number of child mortality increases, the democracy will setback.
 
-Gender inequality have concensus in South Africa and Kenya. In both country, they are significant and negative effects on the degree of democracy. The negative effects means that if the employment rate of women increases comparing to men's, the level of democracy will be deteriorated. This sounds unnatural. However, according to some research, among agricultural countries it is likely to possible that the employment rate of women have negative effect on the democracy because in agricultural society tend to have high employment of women comparing to industrialized society. It can be said that this result can be evidence for assumptions of such research.
+- Gender inequality shows consistencies in South Africa and Kenya. In both countries, the variable is significant and has negative effect on the degree of democracy. The negative effect means that if the female labor force participation rate increases, the level of democracy gets deteriorated. While this negative effect contradicts our common assumption, Ghazal Bayanpourtehrani and Kevin Sylwester also find that Female Labor Force Participation decreases in democracies, implying that democracy is not associated with higher female employment. Some of possible explanations for this finding are first, autocrats may direct more labor from both genders into the formal workforce to raise aggregate output for political propaganda (Bayanpourtehrani et al., 750).  Also, agricultural societies in non-democratic countries may have higher rate of female employment compared to industrialized democratic countries because agricultural activities tend to require higher amount of female labor participation.  
 
-## Regression Analysis on panel data
-In this section, we will run regression on panel data(which is include time-series data for every country) to investigate the effects of each explanatory variables in general. Firstly, we will conduct pooled OLS regression by using following regression model.
+## 2. Regression Analysis on panel data
+
+In this section, the regression model on panel data, which includes time-series data for every country, is applied to investigate the overall effect of each explanatory variable. Firstly, the pooled OLS regression is employed based on the following regression equation:
 
 $$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}+ \epsilon  $$
 
-Table 3 is the result of pooled OLS and previous results for each countries.
+Table 3 shows the result of pooled OLS and previous results for each country.
 
 ```{r, results = 'asis', warning=FALSE, message=FALSE, echo=FALSE}
 #Then, we conducted pooled OLS. In this model, we included all three countries and run the regression.
@@ -173,9 +185,7 @@ L4 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfpanel)
 stargazer(L1, L2, L3,L4, digits = 2,column.labels=c("SouthAfrica","Botswana","Kenya", "Pooled OLS"),title = "Regression results of pooled OLS and for each countries", type = 'latex')
 ```
 
-Now the explanatory variables except gdppc turned out to be significant. However, in the same time, the adjusted R-squared become less than 0.8. Is it possible to treat these coefficients as efficient and unbiased?
-
-We plot the residual versus fitted vaue to investigate whether the country specific effects exist. The following graph is the results.
+As shown in the table, explanatory variables except gdppc turn out to be statistically significant. However, at the same time, the adjusted R-squared becomes less than 0.8, indicating the possibility that these coefficients might be inefficient and biased.  In order to investigate the existence of the country-specific effects, the residual versus fitted value are plotted. The following graph is the results: 
 
 ```{r, echo=FALSE}
 plot(fitted(L4), residuals(L4), xlab = "Fitted Values", ylab = "Residuals")
@@ -184,29 +194,31 @@ lines(smooth.spline(fitted(L4), residuals(L4)))
 
 ```
 
-Apparently, the residuals depends on explanatory variables. This means that there are country specific effects on residuals. Therefore, the coefficients are not efficient and unbiased. Then, we will run Breusch-Pegan test to clearlify whether the country specific effects really exists.
+Apparently, the above graph shows that the residuals depend on the explanatory variables, which means that there are country specific effects on the residuals. Violating the assumption of homoscedasticity, this heteroscedasticity is present here as the size of error varies across values of the explanatory variables.  Therefore, the coefficients are inefficient and biased. Then, Breusch-Pagan test is used here to make sure whether the country specific effects really exist.
 
-To test the dependancy of residuals on variables, we use following equation to run the BP test,
-
+To test the dependancy of residuals on variables, the following equation is utilized to run the BP test:
 
 $$\epsilon = \beta_0 + \beta_1x_{1it} +\beta_2x_{2it}+...+\beta_4x_{4it}  $$
-The null hypothesis is following
+
+The null hypothesis is following:
 
 $$\beta_1 ,\beta_2, \beta_3,\beta_4=0 $$
+
 The result is below.
 
 ```{r, echo=FALSE}
 bptest(L4)
 ```
 
-Clearly, p-value is below 0.05. Therefore, we have to reject the null hypothesis and heteroscedasticity assumed.
+Clearly, p-value is below 0.05. Therefore, the null hypothesis is rejected and heteroscedasticity is assumed.
 
-Then, we have to eliminate these panel specific effects. To achieve this purpose, we will use fixed effect model and random effect model. The following two equations are the fixed effect model and random effect model.
+Next, these panel specific effects have to be eliminated. To achieve this purpose, the fixed effect model and the random effect model are used, and the following two equations are for these models respectively.
+
 
 $$polity4 = \alpha_i + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon  $$
 $$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi}+ \epsilon_i,   $$
 
-Table 4 is the result of pooled OLS, fixed effect model, and random effect model.
+Table 4 shows the result of pooled OLS, fixed effect model, and random effect model.
 
 ```{r, results = 'asis', warning=FALSE, message=FALSE,echo = FALSE}
 #the previous regression suffered from panel specific effects, which cause to biased and inefficient estimator. Thus, we use Fixed-effect model to eliminate panel specific effects.
@@ -220,54 +232,55 @@ stargazer(pooled, fixed,random,digits = 3,column.labels=c("PooledOLS","Fixed eff
 #plot(dfpanel$gdppc, res, ylab="Residuals", xlab="GDP per capita", main="country specific effects") 
 ```
 
-Firstly, we will test whether the panel specific effects is exist. We run the pFtest to investigate country dependant effects.
+First of all here, the existence of panel specific effects is tested and investigated. The pFtest is run to test country dependant effects.
+
 ```{r}
 pFtest(fixed,pooled)
 ```
 
-We cannnot reject the null-hypothesis that there is no panel specific effect.
+The null-hypothesis cannot be rejected, indicating that there are no panel specific effects.
 
-Then, we will run bptest.
+Then, the bptest is conducted.
+
 ```{r, echo=FALSE}
 plmtest(fixed,effect="individual",type="bp")
 ```
-we cannot reject the null hypothesis. (residuals doesn't correlated with independent variables)
 
-Therefore, we have to use fixed effect model or random effect model since there are panel specific effects. Then, we need to decide which model is better than others. In order to making a decision, we run Hausman-test.
+Again, the null hypothesis cannot be rejected and the residuals are not correlated to independent variables.
+
+As results of these above findings, the fixed effect model or the random effect model has to be employed since there are panel specific effects. In order to choose the better model between two, Hausman-test is conducted here.  
 
 ```{r,echo = FALSE}
 phtest(fixed, random)
 ```
 
-We have to reject the null hypothesis that the estimated coefficients of RE and FE do not differ. We can conclude that Random effect is inconsistent and biased, we should continue with the Fixed effect estimator.
+The null hypothesis should be rejected since the estimated coefficients of RE and FE do not differ. The conclusion can be drawn that random effect is inconsistent and biased and thus the Fixed effect estimator should continuously be used.
+The following result from the fixed effect model is most reliable in this case.
 
-In conclusion, the following result of fixed effect model is most reliable in this case.
 ```{r,results = 'asis',  warning=FALSE, message=FALSE,echo = FALSE}
 stargazer(fixed,digits = 3,title = "Fixed effects OLS", type = 'latex')
 
 ```
 
-## Testing our research question
 
-In this section, we will make a conclusion for our research hypothesises by using the result of fixed effect model.
+## 3. Results: Testing the hypotheses
 
-- 1.	There is a significant and positive correlation between socioeconomic variables and democracy.
+This section will provide the overall results and answers to the current research hypotheses based on the outputs from the fixed effect model. 
 
-Partially TRUE. In our regression analysis, we have three significant variables and two of them have positive effect on the degree of democracy. However, gdppc is tuned to be insignificant, and gi (gender inequality) has negative effect on the democracy.
+In regard to the first hypothesis "There is a significant and positive correlation between socioeconomic variables and democracy," it is partially supported. According to the regression analysis, only two variables (Mortality rate under 5 and Primary education enrollment) have significant and positive effects on the degree of democracy. Although gender inequality is also significant, it shows negative effects on the level of democracy, while GDP per capita is not even statistically significant.  
 
+The second hypothesis, which is "Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is the strongest among any other variables," turns out that it is not true. Rather, the regression output reveals that gender inequality is the strongest explanatory variable on the dependent variable in this case.   
 
-- 2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is stronger than any other variables.
-
-FALSE. The most strong explanatory variable is the gender inequatliy.
-
-
-- 3.	The degree of impact of variables on democracy is consistent across selected African countries. 
-
-FALSE. The degree of impact of variables on democracy is mostly inconsistent across three countries according to the regression analysis for each country. Each country has their specific degree of impact on democracy and some of the variables even has opposit effect on the degree of democracy.
+The last hypothesis is "The degree of impact of variables on democracy is consistent across selected African countries." It is also not supported in this current research. Instead, the degree of effects of variables on the level of democracy is very diversified and inconsistent across three countries. In each country, each variable has its specific degree of impact. Moreover, some variables show even opposite effects across countries. 
 
 # Conclusion
 
-As discussed above, it can be said that most of our hypothesis are not true in these three countries.
+This present research examined the relationship between socioeconomic status and the level of democracy in selected African countries in order to answer to the question of whether four important socioeconomic variables -namely GDP per capita, primary education enrollment, gender equality in labor force, and child mortality- affect the regime change to democracy. As discussed above, the analyses show that our hypotheses are not entirely supported in three countries: South Africa, Botswana, and Kenya. The first hypothesis, the significant positive effect of socioeconomic development on democracy, cannot be fully proven as GDP per capita is not significant and, interestingly, gender equality has negative effect. While some researches also find that gender equality, an important component of democracy, may have negative effects, it is important to note that the measure of gender equality is not only a complex and disputed concept but also multidimensional that can be measured by different indicators such as educational attainment rates, life expectancy, the percentage of women in the legislature and sex ratios. Therefore, the methodological gap with the data may bring different interpretations.For the second hypothesis, the most impactful factor is the primary education, cannot be fully supported as the analyses show that gender equality is the most significant. For the final hypothesis, we find that the coefficients of explanatory variables have huge differences among countries. 
+
+The authors also stress that the current examination is conducted within very narrow scope with the regression model. Therefore, this present study contains several limitations that should be considered in evaluating the results. These also include a lack of observations, multicollinearity, and endogeneity problems. There only had total 59 observations on panel data and around 20 observations for each country, which can deteriorate the reliability of the regression analysis. Also, it is possible to have multicollinearity among explanatory variables that can cause the violation of Gauss-Markov assumption. For example, GDP per capita may affect the primary education level. Regarding the endogeneity problem, it is also possible that democracy, for instance, can influence gender equality rather than vice versa due to, possibly, omitted important variables or confounding factors.Further investigations with higher number of observations and variables are required to deepen the analysis and to better understand the correlation according to country specific circumstances.
+
 
 # Acknowledgment 
   We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
+
+#Reference
