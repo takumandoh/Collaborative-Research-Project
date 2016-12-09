@@ -269,25 +269,12 @@ The last hypothesis is "The degree of impact of variables on democracy is consis
 
 # Conclusion
 
-As we discussed above, it can be said that most of our hypothesis are not true in these three countries. The first hypothesis, the significant positive effect of socioeconomic development on democracy, cannot be fully proven. GDP per capita is not significant and gender equality has negative effect. However, some research mentioned that it is rational that there is a negative effect of gender equality in labor market among agricultural society. We partially proved our hypothesis and provided some evidences for previous researches. For the second hypothesis, we can not say that most impactfull factor is the primary education. The data shows us that the most significant factor is gender equality. For the final hypothesis, we found that the coefficients of explanatory variables have huge difference among countries. It is necessary to further investigation to understand the situations for each country.
-We conducted the regression analysis in our research above, however, there are several limitations in our analysis.
+This present research examined the relationship between socioeconomic status and the level of democracy in selected African countries in order to answer to the question of whether four important socioeconomic variables -namely GDP per capita, primary education enrollment, gender equality in labor force, and child mortality- affect the regime change to democracy. As discussed above, the analyses show that our hypotheses are not entirely supported in three countries: South Africa, Botswana, and Kenya. The first hypothesis, the significant positive effect of socioeconomic development on democracy, cannot be fully proven as GDP per capita is not significant and, interestingly, gender equality has negative effect. However, while some researches also find that gender equality, an important component of democracy, may have negative effects, it is important note that the measure of gender equality is not only a complex and disputed concept but also multidimensional that can be measured by different indicators such as educational attainment rates, life expectancy, the percentage of women in the legislature and sex ratios. Therefore, the methodological gap with the data may bring different interpretations.
 
--1 lack of observations
-We only have 59 observations as a panel data and around 20 observations for each country. This deterionate reliability of our regression analysis. we need to increase observations more.
+ For the second hypothesis, the most impactful factor is the primary education, cannot be fully supported as the analyses show that gender equality is the most significant. For the final hypothesis, we find that the coefficients of explanatory variables have huge differences among countries. The authors also stress that the current examination is conducted within very narrow scope with the regression model. 
+ 
+Therefore, as briefly mentioned above, this present study contains several limitations that should be considered in evaluating the results. These also include a lack of observations, multicollinearity, and endogeneity problems. There only had total 59 observations on panel data and around 20 observations for each country, which can deteriorate the reliability of the regression analysis. Also, it is possible to have multicollinearity among explanatory variables that can cause the violation of Gauss-Markov assumption. For example, GDP per capita may affect the primary education level. Regarding the endogeneity problem, it is also possible that democracy, for instance, can influence gender equality rather than vice versa due to, possibly, omitted important variables or confounding factors. Thus, further investigations with higher number of observations and variables are required to deepen the analysis and to better understand the correlation according to country specific circumstances.
 
--2 Multicollinerlity among independant variables
-There might be multicollinerlity among independant variables exist. For example, gdppc can affect on primary education level. This causes to violation of Gauss-Markov assumption and less efficient estimators.
-
--3 Endogeneity Problem
-It is possible to have endogeneity problem because of simlutaneously problem. For example, there might be simlutaneously problem between degree of democracy and gender equality. Gender equality can have negative effect on democracy, but in the same time, democracy can have effects on gender equaltiy. In addition, there might be ommited important variables exist and that also causes to endogeneity problem.
-
-To overcome these limitations, we suggest following options.
-
--1 increse observations
--2 include more variables which potentially important
-
-
-We believe that this reserach is worth advancing to further investigation.
 
 # Acknowledgment 
   We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
