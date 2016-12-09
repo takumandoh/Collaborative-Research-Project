@@ -17,6 +17,8 @@ library(foreign)
 library(car)
 ```
 
+
+
 # Introduction
 
 The dictionary meaning of "Democracy" defined by Encyclopedia Britannica is "literally ruled by the people." As we all learned from social science classes from junior high school, democracy is derived from the Greek words "coined from demos -people- and kratos -rule- in the middle of the 5th century BC to denote the political systems" in Athens. In modern usage, democracy often refers to a system of government where the citizens exercise power directly or through electing representatives in order to form a parliament. Thus, it is to be distinguished from monarchy or dictatorship. Yet, there is no consensus on how to define democracy while some of characteristics such as political freedom, rule of law, and equality before the law are commonly seen and identified as basic features of democracy. According to The Economist Intelligence Unit's index of democracy written by Laza Kekic, "the fundamental features of a democracy include government based on majority rule and the consent of the governed, the existence of free and fair elections, the protection of minorities and respect for basic human rights" (1). Also, the United Nations sees democracy as "one of the universal and indivisible core values [which] is based on the freely expressed will of people and closely linked to the rule of law and exercise of human rights and fundamental freedoms." Sometimes, the terms "freedom" and "democracy" are used interchangeably. But democracy, as a set of practices and principles about freedom, rather protects freedom and equality.
@@ -40,14 +42,29 @@ Sub-Saharan African countries, where continuously have been experiencing democra
 
 # Literature Review
 
-With regard to measuring democracy, Robert J. Barro, for his paper Determinants of Democracy, used the indicator of electoral rights compiled by Gastil and his followers at Freedom House from 1972 to 1995. He observed the sub-Saharan African's decline in electoral rights after 1960 and back to rise in 1995. According to his argument, "many of African countries [experienced the pattern of fluctuation because they] began with ostensibly democratic institutions when they became independent in the early 1960s, but most evolved into one-party dictatorships by the early 1970s," (1999) and also the democratization in Africa since 1989 was substantial. Although the authors of this current research paper used different data to measure democracy, we also observed sub-Saharan African's fluctuations in democracy, implying that there are some drivers that affects the level of democracy overtime.
-Further, Barro quotes Lipset's argument based on the Lipset hypothesis, which claims that increased education and an enlarged middle class are key elements for the extent of democracy, as in general increases in various measures of the standard of living forecast a gradual rise in democracy. To test this, Barro ran the basic regression for electoral rights -democracy- with the explanatory variables: the log of real per capita GDP and measures of educational attainment. According to his data results, the schooling figures that turn out to have the most explanatory power are the average years of attainment at the primary level for persons aged 25. In regard to the correlation between GPD and democracy, Barro claims that more prosperous places are more likely to be democratic, displaying positive upward trends between per capita GDP and schooling to democracy. Yet, Barro states the necessity for the development of theories of the determination of democracy due to a lack of theoretical models of the relation.
-In the second literature of Democracy and Gender Equality by Caroline Beer, she contrasts the impact of long-term stocks of democracy with the contemporary level of democracy and the participation of women in democracy. This study was conducted in the basis of a generally accepted assumption - also one of our hypotheses- that democracy and gender equality go hand in hand, therefore, democracy promotes the well-being of women. In her previous studies, Beer quotes Richard and Gelleny's research Women's status and economic globalization, which measure the status of women with the United Nations Gender-related Development Index (GDI) and Gender Empowerment Index (GEM) and find the positive relationship between democracy and their indicators of women's status. On the other hand, according to Fish, gender equality causes democracy, suggesting the reverse causality (Islam and authoritarianism, 2002), while Inglehar, Norris, and Welzel find that modernization leads to cultural changes that produce more democracy and gender equality; therefore, the correlation between democracy and gender equality is spurious. (Gender equality and democracy, 2002). Overall from Beer's previous studies, there is not clear statistical evidence which demonstrate the effects of gender equality on democracy and vice versa. Measuring gender equality in terms of the percentage of the population that is female, the ratio of female life expectancy at birth to that of males, the percentage of the total labor force that is female, Beer however finds that, all else equal, long-term democracies tend to promote greater gender equality than authoritarian regimes. Based on the all previous researches, how to measure "democracy" and "gender equality" brings different consequences and the findings are thus ambivalent and inconsistent.
+With regard to measuring democracy, Robert J. Barro (see @dahl_2000,@dahl_2010), for his paper Determinants of Democracy, used the indicator of electoral rights compiled by Gastil and his followers at Freedom House from 1972 to 1995. He observed the sub-Saharan African's decline in electoral rights after 1960 and back to rise in 1995. According to his argument, "many of African countries [experienced the pattern of fluctuation because they] began with ostensibly democratic institutions when they became independent in the early 1960s, but most evolved into one-party dictatorships by the early 1970s," (1999) and also the democratization in Africa since 1989 was substantial. Although the authors of this current research paper used different data to measure democracy, we also observed sub-Saharan African's fluctuations in democracy, implying that there are some drivers that affects the level of democracy overtime.
+Further, Barro (see @barro_1999) quotes Lipset's argument based on the Lipset hypothesis, which claims that increased education and an enlarged middle class are key elements for the extent of democracy, as in general increases in various measures of the standard of living forecast a gradual rise in democracy. To test this, Barro ran the basic regression for electoral rights -democracy- with the explanatory variables: the log of real per capita GDP and measures of educational attainment. According to his data results, the schooling figures that turn out to have the most explanatory power are the average years of attainment at the primary level for persons aged 25. In regard to the correlation between GPD and democracy, Barro claims that more prosperous places are more likely to be democratic, displaying positive upward trends between per capita GDP and schooling to democracy. Yet, Barro states the necessity for the development of theories of the determination of democracy due to a lack of theoretical models of the relation.
+In the second literature of Democracy and Gender Equality by Caroline Beer (see @beer_2009), she contrasts the impact of long-term stocks of democracy with the contemporary level of democracy and the participation of women in democracy. This study was conducted in the basis of a generally accepted assumption - also one of our hypotheses- that democracy and gender equality go hand in hand, therefore, democracy promotes the well-being of women. In her previous studies, Beer quotes Richard and Gelleny's research Women's status and economic globalization, which measure the status of women with the United Nations Gender-related Development Index (GDI) and Gender Empowerment Index (GEM) and find the positive relationship between democracy and their indicators of women's status. On the other hand, according to Fish , gender equality causes democracy, suggesting the reverse causality (Islam and authoritarianism, 2002), while Inglehar, Norris, and Welzel find that modernization leads to cultural changes that produce more democracy and gender equality; therefore, the correlation between democracy and gender equality is spurious. (Gender equality and democracy, 2002). Overall from Beer's previous studies, there is not clear statistical evidence which demonstrate the effects of gender equality on democracy and vice versa. Measuring gender equality in terms of the percentage of the population that is female, the ratio of female life expectancy at birth to that of males, the percentage of the total labor force that is female, Beer however finds that, all else equal, long-term democracies tend to promote greater gender equality than authoritarian regimes. Based on the all previous researches, how to measure "democracy" and "gender equality" brings different consequences and the findings are thus ambivalent and inconsistent.
 John M. Shandra et al. approaches child morality from different theoretical perspectives. By taking political modernization perspective, he quotes from the previous studies that the level of political democracy influences the level of child mortality in developing countries, while Shandra et al. finds only one study which supports for the hypothesized inverse relationship between democracy and child mortality. Setting up the analysis with child mortality rate as a dependent variable, and level of economic development, level of educational attainment, level of female educational attainment, level of political democracy and etc. as independent variables, Shandra et al. finds that the interaction terms between the level of democracy and transnational economic linkages associated with exports and multinational corporations adversely affect child mortality more strongly at lower levels of democracy than at higher levels of democracy. The researchers also lay out their limitations by stating that more multivariate studies are required with more longitudinal data in order to understand the effects of determinants on child mortality. Tanja AJ Houweling et al. in their Determinants of under-5 mortality among the poor and the rich: a cross-national analysis of 43 developing countries which studies how under-5 mortality rates vary with the national level context, they argue that more democratic and ethnically homogeneous countries show significantly lower total under-5 mortality rates in the univariate analysis. While there are poor-rich inequalities in childhood mortality, the research suggests that democracy has a role in reducing the inequalities.
 
 # Data, Variables, and Methods
 
 Among all other African countries, South Africa, Botswana, and Kenya are chosen to be compared for this research. This selection was done based on the World Economic Forum's Global Competitiveness Report 2015-2016, which assess the competitiveness of 140 world economies. With the emphasis of the region's need to prioritize competitiveness and enhance reforms, the report ranked top 10 performers in the sub-Saharan region and the authors selected 3 countries according to their ranks on top, middle, and bottom; South Africa (49th), Botswana(71th) and Kenya (99th). The authors wanted to observe both similarities and differences on the relationship between socioeconomic variables and democracy across diversified countries in terms of economic performances and their competitiveness. 
+(see
+@boutros-ghali_1996
+@dahl_2000
+@dahl_2010
+@freedomhouse_2016
+@democracyandtheunitednations
+@kekic_2007
+@samarasinghe_1994
+@barro_1999
+@beer_2009
+@shandra_nobles_london_williamson_2005
+@houweling_2005
+@polityproject
+@exponent_2015
+@bayanpourtehrani_sylwester_2012)
 
 ## Data collection
 
@@ -124,7 +141,7 @@ In this part, the OLS regression analysis is conducted with a following model:
 
 $$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon $$
 
-Logarithm is used for each explanatory variable in order to compare the effect of each variable on the dependent variable. Because of the huge difference in scale between variables, logarithm has to be utilized. With the use of logarithm, all the variables are transformed into percentage changes, which allows easier comparisons in the same scale. 
+Logarithm is used for each explanatory variable in order to compare the effect of each variable on the dependent variable. Because of the huge difference in scale between variables, logarithm has to be utilized. With the use of logarithm, all the variables are transformed into percentage changes, which allows easier comparisons in the same scale.
 
 Table 2 shows the results of OLS regression for each country. These results include coefficient values and their significant levels.
 
@@ -239,7 +256,20 @@ stargazer(fixed,digits = 3,title = "Fixed effects OLS", type = 'latex')
 
 ```
 
+<<<<<<< HEAD
 ## 3. Results: Testing the hypotheses
+=======
+## Testing our research question
+
+In this section, we will make a conclusion for our research hypothesises by using the result of fixed effect model.
+
+- 1.	There is a significant and positive correlation between socioeconomic variables and democracy.
+
+Partially TRUE. In our regression analysis, we have three significant variables and two of them have positive effect on the degree of democracy. However, gdppc is tuned to be insignificant, and gi (gender equality) has negative effect on the democracy.
+
+
+- 2.	Among four socioeconomic variables - GDP, primary education enrollment, gender equality, and child mortality - the educational effect on democracy is stronger than any other variables.
+>>>>>>> origin/master
 
 This section will provide the overall results and answers to the current research hypotheses based on the outputs from the fixed effect model. 
 
@@ -251,7 +281,25 @@ The last hypothesis is "The degree of impact of variables on democracy is consis
 
 # Conclusion
 
-As discussed above, it can be said that most of our hypothesis are not true in these three countries.
+As we discussed above, it can be said that most of our hypothesis are not true in these three countries. The first hypothesis, the significant positive effect of socioeconomic development on democracy, cannot be fully proven. GDP per capita is not significant and gender equality has negative effect. However, some research mentioned that it is rational that there is a negative effect of gender equality in labor market among agricultural society. We partially proved our hypothesis and provided some evidences for previous researches. For the second hypothesis, we can not say that most impactfull factor is the primary education. The data shows us that the most significant factor is gender equality. For the final hypothesis, we found that the coefficients of explanatory variables have huge difference among countries. It is necessary to further investigation to understand the situations for each country.
+We conducted the regression analysis in our research above, however, there are several limitations in our analysis.
+
+-1 lack of observations
+We only have 59 observations as a panel data and around 20 observations for each country. This deterionate reliability of our regression analysis. we need to increase observations more.
+
+-2 Multicollinerlity among independant variables
+There might be multicollinerlity among independant variables exist. For example, gdppc can affect on primary education level. This causes to violation of Gauss-Markov assumption and less efficient estimators.
+
+-3 Endogeneity Problem
+It is possible to have endogeneity problem because of simlutaneously problem. For example, there might be simlutaneously problem between degree of democracy and gender equality. Gender equality can have negative effect on democracy, but in the same time, democracy can have effects on gender equaltiy. In addition, there might be ommited important variables exist and that also causes to endogeneity problem.
+
+To overcome these limitations, we suggest following options.
+
+-1 increse observations
+-2 include more variables which potentially important
+
+
+We believe that this reserach is worth advancing to further investigation.
 
 # Acknowledgment 
   We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
