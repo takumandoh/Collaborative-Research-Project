@@ -1,5 +1,5 @@
 ---
-title: Socioeconomic status and Democratization <South Africa, Botswana, and Kenya compared>
+title: Socioeconomic status and Democratization <South Africa, Botswana, and Kenya compared> 
 
 output: pdf_document
 bibliography: bibliography.bib
