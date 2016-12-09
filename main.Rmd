@@ -123,7 +123,7 @@ In this part, the OLS regression analysis is conducted with a following model:
 
 $$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon $$
 
-The logarithm is used for each explanatory variable in order to compare the effect of each variable on the dependent variable. Because of the huge difference in scale between variables, logarithm has to be utilized. With the use of logarithm, all the variables are transformed into percentage changes, which allows easier comparisons in the same scale. 
+Logarithm is used for each explanatory variable in order to compare the effect of each variable on the dependent variable. Because of the huge difference in scale between variables, logarithm has to be utilized. With the use of logarithm, all the variables are transformed into percentage changes, which allows easier comparisons in the same scale. 
 
 Table 2 shows the results of OLS regression for each country. These results include coefficient values and their significant levels.
 
@@ -137,12 +137,12 @@ L3 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfkn)
 stargazer(L1, L2, L3,digits = 2,column.labels=c("SouthAfrica","Botswana","Kenya"),title = "Regression results for each country", type = 'latex')
 ```
 
-According to Table 2, each country has different values of coefficients and significant levels for explanatory variables. For example, in South Africa, gdppc has a negative effect on the degree of democratization, while gdppc has a positive effect in Botswana. In Kenya, gdppc is not even statistically significant. This means that the effectiveness of GDP per capita on the degree of democracy is different across countries. 
+According to Table 2, each country has different values of coefficients and significant levels for explanatory variables.
+- In South Africa, gdppc has a negative effect on the degree of democratization, while gdppc has a positive effect in Botswana. In Kenya, gdppc is not even statistically significant. This means that the effectiveness of GDP per capita on the degree of democracy is different across countries. 
 
-Primary education enrollment is statistically not significant in all countries. Such result seems contradictory to the previous researches, which find that the education level is significant for democracy.
+- Primary education enrollment is statistically not significant in all countries. Such result seems contradictory to the previous researches, which find that the education level is significant for democracy.
 
-
-Mortality rate under 5 years old is in the same chaos like gdppc. They are significant in Botswana and Kenya, however, the effects on the degree of democracy is opposit way. In Botswana, they have positive effect. That means if the number of dead children increases, the democracy also advance. On the other hand, they have negative effect in Kenya. That means if the number of dead children increases, the democracy will setback.
+- Mortality rate under 5 years old shows inconsistencies like gdppc. This variable is significant in Botswana and Kenya, and its effect on the degree of democracy in Botswana is positive while it is negative in Kenya. If the effect is positive, it means that higher number of mortality increases the level democracy. On the other hand, having a negative effect means as the number of child mortality increases, the democracy will setback.
 
 Gender inequality have concensus in South Africa and Kenya. In both country, they are significant and negative effects on the degree of democracy. The negative effects means that if the employment rate of women increases comparing to men's, the level of democracy will be deteriorated. This sounds unnatural. However, according to some research, among agricultural countries it is likely to possible that the employment rate of women have negative effect on the democracy because in agricultural society tend to have high employment of women comparing to industrialized society. It can be said that this result can be evidence for assumptions of such research.
 
