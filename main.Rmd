@@ -2,6 +2,7 @@
 title: Socioeconomic status and Democratization <South Africa, Botswana, and Kenya
   compared
 output: pdf_document
+bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -258,3 +259,4 @@ As discussed above, it can be said that most of our hypothesis are not true in t
 # Acknowledgment 
   We the authors, Takuma Andoh and Bomi Kim, would like to appreciate Professor Christopher Gandrud, discussants Pol De Santalo and Yumi Komai, and peers in Introduction to Collaborative Social Science Data Analysis for Fall 2016 at the Hertie School of Governance for their time, supports, advices, and guidance. 
 
+#Reference
