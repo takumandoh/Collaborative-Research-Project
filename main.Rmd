@@ -105,26 +105,27 @@ The above graph shows the trend of democratization in South Africa. As easily ca
 ggplot(dfbo, aes(year, demo)) + geom_line() + ggtitle("Democratization in Botswana")
 ```
 
+The graph of Botswana's level of democratization reveals that there had two big leaps in the mid-1980s and the mid-1990s, and it has been stable since then. Compared to South Africa whose highest point is 9.0, Botswana's highest level of democracy is 8.0 despite the fact that Botswana has been practicing democracy since its independence in 1965 and maintained multi-party democratic system for relatively longer periods than neighboring countries. 
+
 ```{r,warning=FALSE, message=FALSE,echo=FALSE}
 ggplot(dfkn, aes(year, demo)) + geom_line() + ggtitle("Democratization in Kenya")
 ```
 
-As graphs showing, the level of democratization has been fluctuated. Sometimes democracy advances, and sometimes it setbacks. We will investigate the data to clearify what is the driver of these fluctuation. 
+Compared to both South Africa and Botswana, the level of democracy in Kenya shows the most dynamic fluctuations in the graph. Between the 1960s and 1980s, democracy was deteriorating greatly and going down to negative scales but, from 1980 till 2000, democracy advances step by step. During the early 2000, Kenya also finally experiences high jump on the level of democracy to above 6, which reflects country's first general elections under a new Constitution in 2013.
 
 # Multivariate Analyses
-In this section, we will start quantitative analysis. The purpose of this quantitative research is to clearlify the effect of socioeconomic factors on the dgree of democratization and compare the each coefficients among countries. So we devide this part into three part. In the first part, we will investigate country specific coefficients for each variables by running regression analysis for each country and compare the coefficients among countries to make the characteristics of each countries clear. In the second part, we will run panel regression to investigate general effect of each variables on the degree of democratization. To achieve this purpose, we will use several models to eliminate country specific effects, compare the results of each models and decide the most effective model (the model which provide unbiased and most efficient coefficients). In the final part, we discuss the results and test our hypothesises.  
 
-## Regression analysis for each country
+This section of the analyses will offer a look at the effect of socioeconomic factors on the degree of democratization and the comparison of each coefficient among countries through quantitative analysis method. Dividing the section into three parts, the authors will investigate country-specific coefficients for each variable in each country by using regression analysis in the first part. It will allow us to make clear comparisons among coefficients across countries. In the second part, the authors will employ the panel regression model in order to observe the general effect of each variable on the level of democratization. To achieve this purpose, several different models will be utilized so as to eliminate country-specific effects, to compare the results of each model, and to decide the most effective model among all others so that the authors could get unbiased and most efficient coefficients. In the final part, the overall results and the hypothesis testing will be provided.
 
-In this part, we will run OLS regression analysis for each part. We use following model,
+## 1. Regression analysis for each country
+
+In this part, the OLS regression analysis is conducted with a following model:
 
 $$polity4 = \beta_0 + \beta_1\log{gdppc}+\beta_2\log{pe}+\beta_3\log{mr}+\beta_4\log{gi} + \epsilon $$
 
-Please see the table in sections above to see details of each variables.
+The logarithm is used for each explanatory variable in order to compare the effect of each variable on the dependent variable. Because of the huge difference in scale between variables, logarithm has to be utilized. With the use of logarithm, all the variables are transformed into percentage changes, which allows easier comparisons in the same scale. 
 
-We used logalism for each explanatory variables since we want to compare the effect of each variables. Because of huge difference in the scale of each variables, we cannot compare the effects without logalism. If we use logarism transformation in each variables, the changes in each variables are transformed into parcentage change. Therefore, we can compare the effects of each variables in same scale.
-
-Then, we run the OLS regression for each country. The table 2 is the results of each regressions. This results includes coefficients value and its significant level.
+Table 2 shows the results of OLS regression for each country. These results include coefficient values and their significant levels.
 
 ```{r star, results = 'asis', echo=FALSE}
 library(stargazer, quietly = TRUE)
@@ -136,11 +137,10 @@ L3 <- lm(demo ~ log(gdppc) + log(pe) + log(mr) + log(gi), data=dfkn)
 stargazer(L1, L2, L3,digits = 2,column.labels=c("SouthAfrica","Botswana","Kenya"),title = "Regression results for each country", type = 'latex')
 ```
 
-As you can see the table 2, each country has different value of coefficients and significance level for explanatory variables. For example, in South Africa gdppc has negative effect on the degree of democracy while in Botswana gdppc has positive effect. In Kenya, gdppc is even not significant. This uniqueness among each country is the same for other explanatory variables. We try to extract some concensus from these results.
+According to Table 2, each country has different values of coefficients and significant levels for explanatory variables. For example, in South Africa, gdppc has a negative effect on the degree of democratization, while gdppc has a positive effect in Botswana. In Kenya, gdppc is not even statistically significant. This means that the effectiveness of GDP per capita on the degree of democracy is different across countries. 
 
-There is no concensus in GDP per capita. In South Africa gdppc has negative effect on the degree of democracy while in Botswana gdppc has positive effect. In Kenya, gdppc is even not significant. This means that the effectiveness of gdp per capita on the degree of democracy is different for each country.
+Primary education enrollment is statistically not significant in all countries. Such result seems contradictory to the previous researches, which find that the education level is significant for democracy.
 
-Primary enrollment is insignificant in all country. This result seems contradicting to previous researches in which education level is significant for democracy.
 
 Mortality rate under 5 years old is in the same chaos like gdppc. They are significant in Botswana and Kenya, however, the effects on the degree of democracy is opposit way. In Botswana, they have positive effect. That means if the number of dead children increases, the democracy also advance. On the other hand, they have negative effect in Kenya. That means if the number of dead children increases, the democracy will setback.
 
