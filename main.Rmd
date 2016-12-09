@@ -1,7 +1,7 @@
 ---
 title: Socioeconomic status and Democratization <South Africa, Botswana, and Kenya
   compared
-output: word_document
+output: pdf_document
 bibliography: bibliography.bib
 ---
 
@@ -17,7 +17,9 @@ library(foreign)
 library(car)
 ```
 
+# Abstract
 
+This paper examines the effects of socioeconomic status on democratization. The research is conducted on the basis of the data from different sources, such as the World Bank, the United Nations, and the Polity Project, with three selected countries: South Africa, Botswana, and Kenya. Using OLS and panel data regression models, we find evidence that GDP per capita is not statistically significant on democratization, while Child mortality rate under 5 and Primary education enrollment rate are having strong explanatory power on the level of democracy. Interestingly, however, we also find that gender equality has rather negative effect on democracy.   
 
 # Introduction
 
