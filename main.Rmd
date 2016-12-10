@@ -56,6 +56,21 @@ Further, Barro (see @barro_1999) quotes Lipset's argument based on the Lipset hy
 In the second literature of Democracy and Gender Equality by Caroline Beer (see @beer_2009), she contrasts the impact of long-term stocks of democracy with the contemporary level of democracy and the participation of women in democracy. This study was conducted in the basis of a generally accepted assumption - also one of our hypotheses- that democracy and gender equality go hand in hand, therefore, democracy promotes the well-being of women. In her previous studies, Beer quotes Richard and Gelleny's research Women's status and economic globalization, which measure the status of women with the United Nations Gender-related Development Index (GDI) and Gender Empowerment Index (GEM) and find the positive relationship between democracy and their indicators of women's status. On the other hand, according to Fish from Beer's study, gender equality causes democracy, suggesting the reverse causality (Islam and authoritarianism, 2002), while Inglehar, Norris, and Welzel find that modernization leads to cultural changes that produce more democracy and gender equality; therefore, the correlation between democracy and gender equality is spurious. (Gender equality and democracy, 2002). Overall from Beer's previous studies, there is not clear statistical evidence which demonstrate the effects of gender equality on democracy and vice versa. Measuring gender equality in terms of the percentage of the population that is female, the ratio of female life expectancy at birth to that of males, the percentage of the total labor force that is female, Beer however finds that, all else equal, long-term democracies tend to promote greater gender equality than authoritarian regimes. Based on the all previous researches, how to measure "democracy" and "gender equality" brings different consequences and the findings are thus ambivalent and inconsistent.
 
 John M. Shandra et al. approaches child mortality from different theoretical perspectives (see @shandra_nobles_london_williamson_2005). By taking political modernization perspective, he quotes from the previous studies that the level of political democracy influences the level of child mortality in developing countries, while Shandra et al. finds only one study which supports for the hypothesized inverse relationship between democracy and child mortality. Setting up the analysis with child mortality rate as a dependent variable, and level of economic development, level of educational attainment, level of female educational attainment, level of political democracy and etc. as independent variables, Shandra et al. finds that the interaction terms between the level of democracy and transnational economic linkages associated with exports and multinational corporations adversely affect child mortality more strongly at lower levels of democracy than at higher levels of democracy. The researchers also lay out their limitations by stating that more multivariate studies are required with more longitudinal data in order to understand the effects of determinants on child mortality. Tanja AJ Houweling et al. in their Determinants of under-5 mortality among the poor and the rich: a cross-national analysis of 43 developing countries which studies how under-5 mortality rates vary with the national level context, they argue that more democratic and ethnically homogeneous countries show significantly lower total under-5 mortality rates in the univariate analysis (see @houweling_2005). While there are poor-rich inequalities in childhood mortality, the research suggests that democracy has a role in reducing the inequalities.
+(see
+@boutros-ghali_1996
+@dahl_2000
+@dahl_2010
+@freedomhouse_2016
+@democracyandtheunitednations
+@kekic_2007
+@samarasinghe_1994
+@barro_1999
+@beer_2009
+@shandra_nobles_london_williamson_2005
+@houweling_2005
+@polityproject
+@exponent_2015
+@bayanpourtehrani_sylwester_2012)
 
 # Data, Variables, and Methods
 
