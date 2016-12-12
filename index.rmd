@@ -15,6 +15,7 @@ library(knitr)
 library(lmtest)
 library(foreign)
 library(car)
+library(plotly)
 ```
 
 # Abstract
@@ -128,12 +129,16 @@ All files are successfully imported to R.
 
 # Descriptive Analyses
 
+
+
 ## Democratization
 
 Following graphs are the trends of democratization for each country.
 
 ```{r,warning=FALSE, message=FALSE,echo=FALSE}
 ggplot(dfsa, aes(year, demo)) + geom_line() + ggtitle("Democratization in SouthAfrica")
+
+
 ```
 
 The above graph shows the trend of democratization in South Africa. As easily can be seen, the level of democracy dramatically spiked during the early 1990s, which implies the abolishment of Apartheid and the start of free election. 
@@ -145,7 +150,8 @@ ggplot(dfbo, aes(year, demo)) + geom_line() + ggtitle("Democratization in Botswa
 The graph of Botswana's level of democratization reveals that there had two big leaps in the mid-1980s and the mid-1990s, and it has been stable since then. Compared to South Africa whose highest point is 9.0, Botswana's highest level of democracy is 8.0 despite the fact that Botswana has been practicing democracy since its independence in 1965 and maintained multi-party democratic system for relatively longer periods than neighboring countries. 
 
 ```{r,warning=FALSE, message=FALSE,echo=FALSE}
-ggplot(dfkn, aes(year, demo)) + geom_line() + ggtitle("Democratization in Kenya")
+p <-ggplot(dfkn, aes(year, demo)) + geom_line() + ggtitle("Democratization in Kenya")
+plotly::ggplotly(p)
 ```
 
 Compared to both South Africa and Botswana, the level of democracy in Kenya shows the most dynamic fluctuations in the graph. Between the 1960s and 1980s, democracy was deteriorating greatly and going down to negative scales but, from 1980 till 2000, democracy advances step by step. During the early 2000, Kenya also finally experiences high jump on the level of democracy to above 6, which reflects country's first general elections under a new Constitution in 2013.
